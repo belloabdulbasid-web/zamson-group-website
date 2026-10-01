@@ -1,0 +1,32 @@
+
+:root{--green:#075b36;--green2:#137747;--lime:#91bd35;--ink:#173b2c;--muted:#627369;--pale:#f3f7f2;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff}a{color:inherit}
+header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 14px #092e1b12}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--green);font-weight:800}.brand img{width:58px;height:58px;object-fit:contain}.brand span{font-size:18px;letter-spacing:.2px}
+nav{display:flex;gap:22px;align-items:center}nav a{text-decoration:none;font-size:14px;font-weight:700;color:#254536;padding:10px 0;border-bottom:2px solid transparent}nav a:hover,nav a.active{color:var(--green2);border-color:var(--lime)}
+.btn{display:inline-block;background:var(--green);color:white;padding:14px 21px;border-radius:5px;text-decoration:none;font-weight:700;font-size:14px;border:0;cursor:pointer}.btn:hover{background:var(--green2)}.btn.lime{background:var(--lime);color:#173b2c}.btn.outline{background:transparent;border:1px solid #fff;color:#fff}
+.menu-toggle{display:none;background:none;border:0;font-size:25px;color:var(--green)}
+.hero{min-height:510px;position:relative;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#032e20e8,#064a316e),url('../assets/depot-loading.jpeg') center/cover}.hero-inner{position:relative;z-index:2;padding:75px 8%;max-width:900px}.eyebrow{color:#c7e98b;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800}
+h1{font-size:clamp(39px,5vw,66px);line-height:1.05;margin:17px 0}h2{font-size:clamp(28px,3.4vw,39px);margin:10px 0 14px;color:var(--green)}h3{color:var(--green);margin:0 0 10px}
+.hero p{font-size:18px;line-height:1.7;max-width:650px}.hero .btn{margin:10px 10px 0 0}
+.page-hero{padding:78px 7%;color:#fff;background:linear-gradient(90deg,#063a28ed,#075b3690),url('../assets/depot-exterior.jpeg') center/cover}.page-hero h1{font-size:clamp(36px,4vw,54px);margin:12px 0}.page-hero p{max-width:680px;line-height:1.7;font-size:17px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--green);color:#fff;padding:25px 7%;gap:18px}.metric strong{display:block;font-size:20px;color:#c5e78b}.metric span{font-size:12px}
+section{padding:70px 7%}.soft{background:var(--pale)}.kicker{color:var(--green2);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:11px}.section-head{max-width:760px;margin-bottom:28px}.section-head p,.copy p{line-height:1.8;color:var(--muted)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}.two-col>img{width:100%;height:360px;object-fit:cover;border-radius:7px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{border:1px solid #e1eae2;border-radius:7px;overflow:hidden;background:#fff}.card img{width:100%;height:220px;object-fit:cover;display:block}.card-body{padding:20px}.card p{font-size:14px;line-height:1.7;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gallery figure{margin:0;border-radius:6px;overflow:hidden;background:#f1f5f0}.gallery img{width:100%;height:230px;object-fit:cover;display:block}.gallery figcaption{padding:11px 13px;font-size:13px;font-weight:bold;color:var(--green)}
+.leader{display:grid;grid-template-columns:310px 1fr;gap:40px;align-items:center}.leader img{width:100%;max-height:410px;object-fit:cover;object-position:top;border-radius:7px}
+.video-panel{display:grid;grid-template-columns:1.2fr 1fr;gap:38px;align-items:center}.video-panel video{width:100%;border-radius:7px;background:#0a3828;max-height:430px}
+.cta{background:linear-gradient(110deg,#06452c,#0d7442);color:white;padding:48px 7%;display:flex;justify-content:space-between;align-items:center;gap:20px}.cta h2{color:white}.cta p{color:#e1eee5}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}.contact-card{padding:25px;border:1px solid #e2eae3;border-radius:8px}.contact-card p{color:var(--muted);line-height:1.7}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}.field input,.field textarea{width:100%;padding:13px;border:1px solid #ccd9cf;border-radius:5px;font:inherit}.field textarea{min-height:125px;resize:vertical}
+footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h3{color:#c5e78b}footer a{display:block;color:#e0ebe3;text-decoration:none;margin:10px 0;font-size:13px}.copyright{border-top:1px solid #ffffff26;margin-top:28px;padding-top:17px;font-size:12px;color:#b8c9be}
+@media(max-width:900px){nav{gap:12px}nav a{font-size:12px}}
+@media(max-width:720px){header{height:72px}.menu-toggle{display:block}nav{display:none;position:absolute;top:72px;left:0;right:0;background:white;padding:15px 7% 22px;box-shadow:0 10px 14px #092e1b12;flex-direction:column;align-items:stretch;gap:4px}nav.open{display:flex}nav a{padding:11px 0}.header-cta{display:none}.hero{min-height:470px}.hero-inner{padding:58px 7%}.two-col,.leader,.video-panel,.contact-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.strip{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}.cta{display:block}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cards,.gallery,.foot{grid-template-columns:1fr}section{padding:52px 7%}.two-col>img{height:260px}.brand img{width:48px;height:48px}.brand span{font-size:15px}}
+
+.office-details p{margin:0 0 17px;line-height:1.7;color:var(--muted)}
+.office-details strong{color:var(--green);font-size:13px;letter-spacing:.3px}
+.office-details a{color:var(--green2);font-weight:700;text-decoration:none}
+
+/* Subsidiary profile pages */
+.subsidiary-hero{background-position:center;background-size:cover}.subsidiary-hero h1{max-width:820px}.subsidiary-hero p{max-width:760px;line-height:1.75}.subsidiary-hero .btn{margin-top:12px}.subsidiary-intro .text-link{display:inline-block;margin-top:8px;color:var(--green2);font-weight:800;text-decoration:none}.subsidiary-contact{padding-top:0}.subsidiary-contact .cta{border-radius:8px}.subsidiary-contact .cta p{line-height:1.7}
