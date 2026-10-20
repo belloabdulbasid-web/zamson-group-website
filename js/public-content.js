@@ -1,194 +1,125 @@
 
-(() => {
-  const db = window.supabase.createClient(
-    window.ZAMSON_SUPABASE_URL,
-    window.ZAMSON_SUPABASE_PUBLISHABLE_KEY
-  );
+function renderNews(rows) {
+  const target = document.querySelector('[data-cms-news]');
+  if (!target) return;
 
-  const esc = (s) =>
-    String(s ?? '').replace(/[&<>"']/g, c => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;'
-    }[c]));
-
-  const safeUrl = (s) => {
-    if (!s) return '';
-    try {
-      const u = new URL(s, location.href);
-      return ['http:', 'https:'].includes(u.protocol) ? u.href : '';
-    } catch {
-      return '';
-    }
-  };
-
-  const formatDate = (s) => {
-    if (!s) return '';
-    const d = new Date(s);
-    return Number.isNaN(d.getTime())
-      ? ''
-      : d.toLocaleDateString('en-NG', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        });
-  };
-
-  // Depot images uploaded to the root of the GitHub repository.
-  const depotImages = ['Proj2.jpeg', 'proj1.jpeg'];
-
-  function imageHtml(url, alt, fallback = '') {
-    const imageUrl = safeUrl(url) || fallback;
-    if (!imageUrl) return '';
-
-    const fallbackAttr = fallback
-      ? ` data-fallback="${esc(fallback)}"`
-      : '';
-
-    return `<img src="${esc(imageUrl)}" alt="${esc(alt)}" loading="lazy"${fallbackAttr} onerror="if(this.dataset.fallback && this.src !== new URL(this.dataset.fallback, location.href).href){this.onerror=null;this.src=this.dataset.fallback}else{this.style.display='none'}">`;
+  if (!rows.length) {
+    target.innerHTML =
+      '<p class="muted">No published news or announcements yet.</p>';
+    return;
   }
 
-  async function get(table, options = {}) {
-    let q = db.from(table).select('*');
+  target.innerHTML = `
+    <div class="news-carousel">
+      <button class="news-arrow news-prev" type="button"
+        aria-label="Previous news">‹</button>
+      <div class="news-viewport">
+        <div class="news-track">
+          ${rows.map((r, i) => {
+            const fallback = ['Proj2.jpeg', 'proj1.jpeg'][i % 2];
+            const img = safeUrl(r.image_url) || fallback;
 
-    if (options.published) q = q.eq('published', true);
-    if (options.order) {
-      q = q.order(options.order, {
-        ascending: options.ascending ?? false
+            return `
+              <article class="card news-card">
+                <img src="${esc(img)}"
+                  alt="${esc(r.title)}"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='${fallback}'">
+                <div class="card-body">
+                  <div class="kicker">${formatDate(r.created_at)}</div>
+                  <h3>${esc(r.title)}</h3>
+                  <p>${esc(r.content || '')}</p>
+                </div>
+              </article>`;
+          }).join('')}
+        </div>
+      </div>
+      <button class="news-arrow news-next" type="button"
+        aria-label="Next news">›</button>
+    </div>
+    <div class="news-dots" aria-label="News slide navigation"></div>
+  `;
+
+  const viewport = target.querySelector('.news-viewport');
+  const track = target.querySelector('.news-track');
+  const cards = [...target.querySelectorAll('.news-card')];
+  const dots = target.querySelector('.news-dots');
+  const prev = target.querySelector('.news-prev');
+  const next = target.querySelector('.news-next');
+
+  let index = 0;
+  let timer;
+  let perView = window.innerWidth >= 900 ? 3 :
+                window.innerWidth >= 600 ? 2 : 1;
+
+  function drawDots() {
+    const total = Math.max(1, cards.length - perView + 1);
+    dots.innerHTML = Array.from({ length: total }, (_, i) =>
+      `<button type="button" class="news-dot ${i === index ? 'active' : ''}"
+        aria-label="Go to news slide ${i + 1}" data-index="${i}"></button>`
+    ).join('');
+  }
+
+  function moveTo(newIndex) {
+    const total = Math.max(1, cards.length - perView + 1);
+    index = (newIndex + total) % total;
+
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+
+    track.style.transform =
+      `translateX(-${index * (cardWidth + gap)}px)`;
+
+    dots.querySelectorAll('.news-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  function restartTimer() {
+    clearInterval(timer);
+    if (cards.length > perView) {
+      timer = setInterval(() => moveTo(index + 1), 5000);
+    }
+  }
+
+  prev.addEventListener('click', () => {
+    moveTo(index - 1);
+    restartTimer();
+  });
+
+  next.addEventListener('click', () => {
+    moveTo(index + 1);
+    restartTimer();
+  });
+
+  dots.addEventListener('click', (event) => {
+    const dot = event.target.closest('.news-dot');
+    if (!dot) return;
+    moveTo(Number(dot.dataset.index));
+    restartTimer();
+  });
+
+  target.addEventListener('mouseenter', () => clearInterval(timer));
+  target.addEventListener('mouseleave', restartTimer);
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      perView = window.innerWidth >= 900 ? 3 :
+                window.innerWidth >= 600 ? 2 : 1;
+      index = Math.min(index, Math.max(0, cards.length - perView));
+      track.style.transition = 'none';
+      drawDots();
+      moveTo(index);
+      requestAnimationFrame(() => {
+        track.style.transition = '';
       });
-    }
-    if (options.limit) q = q.limit(options.limit);
+      restartTimer();
+    }, 150);
+  });
 
-    const { data, error } = await q;
-    if (error) throw error;
-    return data || [];
-  }
-
-  function renderProjects(rows) {
-    const list = document.querySelector('[data-cms-projects]');
-    if (!list) return;
-    if (!rows.length) return;
-
-    list.innerHTML = rows.map((r, i) => {
-      const fallback = depotImages[i % depotImages.length];
-      return `
-        <article class="card project-card">
-          ${imageHtml(r.image_url, r.title, fallback)}
-          <div class="card-body">
-            <div class="kicker">${esc(r.status || 'Project')}</div>
-            <h3>${esc(r.title)}</h3>
-            ${r.location ? `<p><strong>Location:</strong> ${esc(r.location)}</p>` : ''}
-            <p>${esc(r.description || '')}</p>
-          </div>
-        </article>`;
-    }).join('');
-  }
-
-  function renderProjectTeaser(rows) {
-    const target = document.querySelector('[data-cms-project-teaser]');
-    if (!target || !rows.length) return;
-
-    const r = rows[0];
-    target.innerHTML = `
-      <div class="two-col project-teaser">
-        ${imageHtml(r.image_url, r.title, 'Proj2.jpeg')}
-        <div class="copy">
-          <div class="kicker">${esc(r.status || 'Project')}</div>
-          <h2>${esc(r.title)}</h2>
-          <p>${esc(r.description || '')}</p>
-          ${r.location ? `<p><strong>Location:</strong> ${esc(r.location)}</p>` : ''}
-          <span class="status-pill">${esc(r.status || '')}</span>
-          <p><a class="btn" href="projects.html">View project details</a></p>
-        </div>
-      </div>`;
-  }
-
-  function renderProjectDetail(rows) {
-    const target = document.querySelector('[data-cms-project-detail]');
-    if (!target || !rows.length) return;
-
-    const r = rows[0];
-    target.innerHTML = `
-      <div class="project-detail">
-        ${imageHtml(r.image_url, r.title, 'Proj2.jpeg')}
-        <div class="copy">
-          <div class="kicker">${esc(r.status || 'Project')}</div>
-          <h2>${esc(r.title)}</h2>
-          <span class="status-pill">${esc(r.status || '')}</span>
-          <p>${esc(r.description || '')}</p>
-          ${r.location ? `<h3>Project location</h3><p>${esc(r.location)}</p>` : ''}
-          <p>Further information will be added as plans are confirmed and the project progresses.</p>
-          <a class="btn" href="contact.html">Make an enquiry</a>
-        </div>
-      </div>`;
-  }
-
-  function renderLeadership(rows) {
-    const target = document.querySelector('[data-cms-leadership]');
-    if (!target || !rows.length) return;
-
-    target.innerHTML = rows.map(r => {
-      const img = safeUrl(r.photo_url);
-      return `
-        <div class="leader">
-          ${img ? imageHtml(img, r.full_name) : ''}
-          <div class="copy">
-            <div class="kicker">Group Leadership</div>
-            <h2>${esc(r.full_name)}</h2>
-            <p class="leader-role">${esc(r.position || '')}</p>
-            <p>${esc(r.biography || '')}</p>
-          </div>
-        </div>`;
-    }).join('');
-  }
-
-  function renderNews(rows) {
-    const target = document.querySelector('[data-cms-news]');
-    if (!target) return;
-
-    if (!rows.length) {
-      target.innerHTML = '<p class="muted">No published news or announcements yet.</p>';
-      return;
-    }
-
-    target.innerHTML = rows.map((r, i) => {
-      // Use the stored CMS image when it loads; otherwise show a depot photo.
-      const fallback = depotImages[i % depotImages.length];
-
-      return `
-        <article class="card news-card">
-          ${imageHtml(r.image_url, r.title, fallback)}
-          <div class="card-body">
-            <div class="kicker">${formatDate(r.created_at)}</div>
-            <h3>${esc(r.title)}</h3>
-            <p>${esc(r.content || '')}</p>
-          </div>
-        </article>`;
-    }).join('');
-  }
-
-  async function init() {
-    try {
-      const [projects, news, leadership] = await Promise.all([
-        get('projects', { order: 'created_at' }),
-        get('news', { published: true, order: 'created_at', limit: 6 }),
-        get('leadership', { order: 'created_at' })
-      ]);
-
-      renderProjects(projects);
-      renderProjectTeaser(projects);
-      renderProjectDetail(projects);
-      renderLeadership(leadership);
-      renderNews(news);
-    } catch (e) {
-      console.warn(
-        'Zamson CMS content could not be loaded:',
-        e.message || e
-      );
-    }
-  }
-
-  init();
-})();
+  drawDots();
+  moveTo(0);
+  restartTimer();
+}
