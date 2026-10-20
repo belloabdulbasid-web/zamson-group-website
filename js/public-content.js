@@ -3,80 +3,118 @@ function renderNews(rows) {
   const target = document.querySelector('[data-cms-news]');
   if (!target) return;
 
-  if (!rows.length) {
+  if (!rows || !rows.length) {
     target.innerHTML =
       '<p class="muted">No published news or announcements yet.</p>';
     return;
   }
 
+  const fallbackImages = ['Proj2.jpeg', 'proj1.jpeg'];
+
   target.innerHTML = `
     <div class="news-carousel">
       <button class="news-arrow news-prev" type="button"
-        aria-label="Previous news">‹</button>
+        aria-label="Previous news">&#8249;</button>
+
       <div class="news-viewport">
         <div class="news-track">
           ${rows.map((r, i) => {
-            const fallback = ['Proj2.jpeg', 'proj1.jpeg'][i % 2];
+            const fallback = fallbackImages[i % fallbackImages.length];
             const img = safeUrl(r.image_url) || fallback;
 
             return `
               <article class="card news-card">
-                <img src="${esc(img)}"
-                  alt="${esc(r.title)}"
+                <img
+                  src="${esc(img)}"
+                  alt="${esc(r.title || 'Zamson Group news')}"
                   loading="lazy"
                   onerror="this.onerror=null;this.src='${fallback}'">
+
                 <div class="card-body">
-                  <div class="kicker">${formatDate(r.created_at)}</div>
-                  <h3>${esc(r.title)}</h3>
+                  <div class="kicker">
+                    ${esc(formatDate(r.created_at))}
+                  </div>
+                  <h3>${esc(r.title || 'News update')}</h3>
                   <p>${esc(r.content || '')}</p>
                 </div>
               </article>`;
           }).join('')}
         </div>
       </div>
+
       <button class="news-arrow news-next" type="button"
-        aria-label="Next news">›</button>
+        aria-label="Next news">&#8250;</button>
     </div>
+
     <div class="news-dots" aria-label="News slide navigation"></div>
   `;
 
-  const viewport = target.querySelector('.news-viewport');
   const track = target.querySelector('.news-track');
   const cards = [...target.querySelectorAll('.news-card')];
   const dots = target.querySelector('.news-dots');
   const prev = target.querySelector('.news-prev');
   const next = target.querySelector('.news-next');
 
+  if (!track || !cards.length || !dots || !prev || !next) return;
+
   let index = 0;
   let timer;
-  let perView = window.innerWidth >= 900 ? 3 :
-                window.innerWidth >= 600 ? 2 : 1;
+  let resizeTimer;
+
+  function getPerView() {
+    if (window.innerWidth >= 900) return 3;
+    if (window.innerWidth >= 600) return 2;
+    return 1;
+  }
+
+  let perView = getPerView();
+
+  function getTotal() {
+    return Math.max(1, cards.length - perView + 1);
+  }
 
   function drawDots() {
-    const total = Math.max(1, cards.length - perView + 1);
-    dots.innerHTML = Array.from({ length: total }, (_, i) =>
-      `<button type="button" class="news-dot ${i === index ? 'active' : ''}"
-        aria-label="Go to news slide ${i + 1}" data-index="${i}"></button>`
-    ).join('');
+    const total = getTotal();
+
+    dots.innerHTML = Array.from({ length: total }, (_, i) => `
+      <button
+        type="button"
+        class="news-dot ${i === index ? 'active' : ''}"
+        aria-label="Go to news slide ${i + 1}"
+        aria-current="${i === index ? 'true' : 'false'}"
+        data-index="${i}">
+      </button>
+    `).join('');
   }
 
   function moveTo(newIndex) {
-    const total = Math.max(1, cards.length - perView + 1);
-    index = (newIndex + total) % total;
+    const total = getTotal();
+    index = ((newIndex % total) + total) % total;
 
     const cardWidth = cards[0].getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
 
     track.style.transform =
       `translateX(-${index * (cardWidth + gap)}px)`;
 
     dots.querySelectorAll('.news-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
+      const active = i === index;
+      dot.classList.toggle('active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
     });
   }
 
-  function restartTimer() {
-    clearInterval(timer);
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = undefined;
+    }
+  }
+
+  function startTimer() {
+    stopTimer();
+
     if (cards.length > perView) {
       timer = setInterval(() => moveTo(index + 1), 5000);
     }
@@ -84,42 +122,48 @@ function renderNews(rows) {
 
   prev.addEventListener('click', () => {
     moveTo(index - 1);
-    restartTimer();
+    startTimer();
   });
 
   next.addEventListener('click', () => {
     moveTo(index + 1);
-    restartTimer();
+    startTimer();
   });
 
   dots.addEventListener('click', (event) => {
     const dot = event.target.closest('.news-dot');
     if (!dot) return;
+
     moveTo(Number(dot.dataset.index));
-    restartTimer();
+    startTimer();
   });
 
-  target.addEventListener('mouseenter', () => clearInterval(timer));
-  target.addEventListener('mouseleave', restartTimer);
+  target.addEventListener('mouseenter', stopTimer);
+  target.addEventListener('mouseleave', startTimer);
 
-  let resizeTimer;
+  target.addEventListener('focusin', stopTimer);
+  target.addEventListener('focusout', (event) => {
+    if (!target.contains(event.relatedTarget)) startTimer();
+  });
+
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
+
     resizeTimer = setTimeout(() => {
-      perView = window.innerWidth >= 900 ? 3 :
-                window.innerWidth >= 600 ? 2 : 1;
-      index = Math.min(index, Math.max(0, cards.length - perView));
-      track.style.transition = 'none';
-      drawDots();
+      const newPerView = getPerView();
+
+      if (newPerView !== perView) {
+        perView = newPerView;
+        index = Math.min(index, getTotal() - 1);
+        drawDots();
+      }
+
       moveTo(index);
-      requestAnimationFrame(() => {
-        track.style.transition = '';
-      });
-      restartTimer();
+      startTimer();
     }, 150);
   });
 
   drawDots();
   moveTo(0);
-  restartTimer();
+  startTimer();
 }
