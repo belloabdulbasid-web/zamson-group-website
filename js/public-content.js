@@ -52,7 +52,9 @@
   async function get(table, options = {}) {
     let q = db.from(table).select('*');
 
-    if (options.published) q = q.eq('published', true);
+    if (options.published) {
+      q = q.eq('published', true);
+    }
 
     if (options.order) {
       q = q.order(options.order, {
@@ -60,7 +62,9 @@
       });
     }
 
-    if (options.limit) q = q.limit(options.limit);
+    if (options.limit) {
+      q = q.limit(options.limit);
+    }
 
     const { data, error } = await q;
     if (error) throw error;
@@ -142,143 +146,61 @@
     `).join('');
   }
 
-  
-function renderNews(rows) {
-  const target = document.querySelector('[data-cms-news]');
-  if (!target) return;
+  function renderNews(rows) {
+    const target = document.querySelector('[data-cms-news]');
+    if (!target) return;
 
-  if (!rows || !rows.length) {
-    target.innerHTML =
-      '<p class="muted">No published news or announcements yet.</p>';
-    return;
-  }
+    if (!rows || !rows.length) {
+      target.innerHTML =
+        '<p class="muted">No published news or announcements yet.</p>';
+      return;
+    }
 
-  target.innerHTML = `
-    <div class="news-carousel">
-      <button class="news-arrow news-prev" type="button"
-        aria-label="Previous news">&#8249;</button>
-      <div class="news-viewport">
-        <div class="news-track">
-          ${rows.map((r, i) => `
-            <article class="card news-card">
-              ${imageHtml(
-                r.image_url,
-                r.title || 'Zamson Group news',
-                depotImages[i % depotImages.length]
-              )}
-              <div class="card-body">
-                <div class="kicker">${esc(formatDate(r.created_at))}</div>
-                <h3>${esc(r.title || 'News update')}</h3>
-                <p>${esc(r.content || '')}</p>
-              </div>
-            </article>
-          `).join('')}
+    target.innerHTML = `
+      <div class="news-carousel">
+        <button class="news-arrow news-prev" type="button"
+          aria-label="Previous news">&#8249;</button>
+        <div class="news-viewport">
+          <div class="news-track">
+            ${rows.map((r, i) => `
+              <article class="card news-card">
+                ${imageHtml(
+                  r.image_url,
+                  r.title || 'Zamson Group news',
+                  depotImages[i % depotImages.length]
+                )}
+                <div class="card-body">
+                  <div class="kicker">${esc(formatDate(r.created_at))}</div>
+                  <h3>${esc(r.title || 'News update')}</h3>
+                  <p>${esc(r.content || '')}</p>
+                </div>
+              </article>
+            `).join('')}
+          </div>
         </div>
+        <button class="news-arrow news-next" type="button"
+          aria-label="Next news">&#8250;</button>
       </div>
-      <button class="news-arrow news-next" type="button"
-        aria-label="Next news">&#8250;</button>
-    </div>
-    <div class="news-dots" aria-label="News slide navigation"></div>
-  `;
+      <div class="news-dots" aria-label="News slide navigation"></div>
+    `;
 
-  const viewport = target.querySelector('.news-viewport');
-  const track = target.querySelector('.news-track');
-  const cards = [...target.querySelectorAll('.news-card')];
-  const dots = target.querySelector('.news-dots');
-  const prev = target.querySelector('.news-prev');
-  const next = target.querySelector('.news-next');
+    const viewport = target.querySelector('.news-viewport');
+    const track = target.querySelector('.news-track');
+    const cards = [...target.querySelectorAll('.news-card')];
+    const dots = target.querySelector('.news-dots');
+    const prev = target.querySelector('.news-prev');
+    const next = target.querySelector('.news-next');
 
-  if (!viewport || !track || !cards.length || !dots) return;
-
-  let index = 0;
-  let timer;
-  let resizeTimer;
-
-  // One news item per slide on every screen size.
-  function drawDots() {
-    dots.innerHTML = cards.map((_, i) => `
-      <button type="button"
-        class="news-dot ${i === index ? 'active' : ''}"
-        aria-label="Go to news slide ${i + 1}"
-        aria-current="${i === index ? 'true' : 'false'}"
-        data-index="${i}"></button>
-    `).join('');
-  }
-
-  function moveTo(newIndex) {
-    index = ((newIndex % cards.length) + cards.length) % cards.length;
-
-    const viewportWidth = viewport.getBoundingClientRect().width;
-
-    // Each slide occupies one viewport width.
-    track.style.transform =
-      `translate3d(-${index * viewportWidth}px, 0, 0)`;
-
-    dots.querySelectorAll('.news-dot').forEach((dot, i) => {
-      const active = i === index;
-      dot.classList.toggle('active', active);
-      dot.setAttribute('aria-current', active ? 'true' : 'false');
-    });
-  }
-
-  function stopTimer() {
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
-
-  function startTimer() {
-    stopTimer();
-
-    if (cards.length > 1) {
-      timer = setInterval(() => moveTo(index + 1), 5000);
-    }
-  }
-
-  prev.addEventListener('click', () => {
-    moveTo(index - 1);
-    startTimer();
-  });
-
-  next.addEventListener('click', () => {
-    moveTo(index + 1);
-    startTimer();
-  });
-
-  dots.addEventListener('click', event => {
-    const dot = event.target.closest('.news-dot');
-    if (!dot) return;
-
-    moveTo(Number(dot.dataset.index));
-    startTimer();
-  });
-
-  target.addEventListener('mouseenter', stopTimer);
-  target.addEventListener('mouseleave', startTimer);
-
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => moveTo(index), 150);
-  });
-
-  drawDots();
-  moveTo(0);
-  startTimer();
-}
-
-    function getPerView() {
-      if (window.innerWidth >= 900) return 3;
-      if (window.innerWidth >= 600) return 2;
-      return 1;
+    if (!viewport || !track || !cards.length || !dots || !prev || !next) {
+      return;
     }
 
-    let perView = getPerView();
-
-    function getTotal() {
-      return Math.max(1, cards.length - perView + 1);
-    }
+    let index = 0;
+    let timer = null;
+    let resizeTimer = null;
 
     function drawDots() {
-      dots.innerHTML = Array.from({ length: getTotal() }, (_, i) => `
+      dots.innerHTML = cards.map((_, i) => `
         <button type="button"
           class="news-dot ${i === index ? 'active' : ''}"
           aria-label="Go to news slide ${i + 1}"
@@ -288,17 +210,11 @@ function renderNews(rows) {
     }
 
     function moveTo(newIndex) {
-      const total = getTotal();
-      index = ((newIndex % total) + total) % total;
+      index = ((newIndex % cards.length) + cards.length) % cards.length;
 
-      const cardWidth = cards[0].getBoundingClientRect().width;
-      const gap = parseFloat(
-        getComputedStyle(track).columnGap ||
-        getComputedStyle(track).gap
-      ) || 0;
-
+      const width = viewport.getBoundingClientRect().width;
       track.style.transform =
-        `translateX(-${index * (cardWidth + gap)}px)`;
+        `translate3d(-${index * width}px, 0, 0)`;
 
       dots.querySelectorAll('.news-dot').forEach((dot, i) => {
         const active = i === index;
@@ -308,14 +224,15 @@ function renderNews(rows) {
     }
 
     function stopTimer() {
-      clearInterval(timer);
-      timer = undefined;
+      if (timer !== null) {
+        clearInterval(timer);
+        timer = null;
+      }
     }
 
     function startTimer() {
       stopTimer();
-
-      if (cards.length > perView) {
+      if (cards.length > 1) {
         timer = setInterval(() => moveTo(index + 1), 5000);
       }
     }
@@ -330,10 +247,9 @@ function renderNews(rows) {
       startTimer();
     });
 
-    dots.addEventListener('click', (event) => {
+    dots.addEventListener('click', event => {
       const dot = event.target.closest('.news-dot');
       if (!dot) return;
-
       moveTo(Number(dot.dataset.index));
       startTimer();
     });
@@ -341,29 +257,17 @@ function renderNews(rows) {
     target.addEventListener('mouseenter', stopTimer);
     target.addEventListener('mouseleave', startTimer);
     target.addEventListener('focusin', stopTimer);
-    target.addEventListener('focusout', (event) => {
+    target.addEventListener('focusout', event => {
       if (!target.contains(event.relatedTarget)) startTimer();
     });
 
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
-
-      resizeTimer = setTimeout(() => {
-        const newPerView = getPerView();
-
-        if (newPerView !== perView) {
-          perView = newPerView;
-          index = Math.min(index, getTotal() - 1);
-          drawDots();
-        }
-
-        moveTo(index);
-        startTimer();
-      }, 150);
+      resizeTimer = setTimeout(() => moveTo(index), 150);
     });
 
     drawDots();
-    moveTo(0);
+    requestAnimationFrame(() => moveTo(0));
     startTimer();
   }
 
@@ -382,7 +286,11 @@ function renderNews(rows) {
   async function init() {
     const results = await Promise.allSettled([
       get('projects', { order: 'created_at' }),
-      get('news', { published: true, order: 'created_at', limit: 6 }),
+      get('news', {
+        published: true,
+        order: 'created_at',
+        limit: 6
+      }),
       get('leadership', { order: 'created_at' })
     ]);
 
@@ -415,10 +323,6 @@ function renderNews(rows) {
 
   init().catch(error => {
     console.error('Zamson CMS initialization failed:', error);
-
-    showLoadError(
-      '[data-cms-news]',
-      error?.message || error
-    );
+    showLoadError('[data-cms-news]', error?.message || error);
   });
 })();
