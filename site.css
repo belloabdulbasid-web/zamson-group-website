@@ -34,17 +34,19 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
 
 /* Zamson Group news carousel movement fix */
 
+/* Reliable one-card-per-slide news carousel */
+
 .cards[data-cms-news] {
   display: block;
   width: 100%;
-  overflow: hidden;
+  min-width: 0;
 }
 
 .news-carousel {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr) 42px;
-  align-items: center;
   gap: 12px;
+  align-items: center;
   width: 100%;
 }
 
@@ -57,40 +59,24 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
 .news-track {
   display: flex !important;
   flex-wrap: nowrap !important;
-  gap: 24px;
+  gap: 0 !important;
   width: 100%;
   transition: transform 0.5s ease;
   will-change: transform;
 }
 
 .news-track > .news-card {
-  display: block;
-  flex: 0 0 calc((100% - 48px) / 3) !important;
-  width: calc((100% - 48px) / 3);
-  min-width: 0;
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 100%;
   box-sizing: border-box;
 }
 
-.news-card img {
+.news-track > .news-card img {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-}
-
-.news-arrow {
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 50%;
-  background: #075c38;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.news-arrow:hover {
-  background: #0b7548;
 }
 
 .news-dots {
@@ -115,13 +101,6 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   background: #075c38;
 }
 
-@media (max-width: 899px) {
-  .news-track > .news-card {
-    flex-basis: calc((100% - 24px) / 2) !important;
-    width: calc((100% - 24px) / 2);
-  }
-}
-
 @media (max-width: 599px) {
   .news-carousel {
     grid-template-columns: 30px minmax(0, 1fr) 30px;
@@ -131,16 +110,5 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   .news-arrow {
     width: 30px;
     height: 36px;
-    font-size: 22px;
-  }
-
-  .news-track {
-    gap: 0;
-  }
-
-  .news-track > .news-card {
-    flex-basis: 100% !important;
-    width: 100%;
   }
 }
-
