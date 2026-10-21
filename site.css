@@ -120,6 +120,7 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   }
 }
 
+
 /* Homepage welcome video background */
 .hero.hero-video {
   position: relative;
@@ -131,7 +132,7 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
 .hero.hero-video .hero-background-video {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -143,7 +144,7 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   background: linear-gradient(
     90deg,
     rgba(0, 55, 39, 0.82),
@@ -154,5 +155,5 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
 
 .hero.hero-video .hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
