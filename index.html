@@ -7,6 +7,42 @@
   <meta name="description" content="Zamson Group - energy, petroleum storage, retail distribution and logistics in Nigeria.">
   <title>Home | Zamson Group</title>
   <link rel="stylesheet" href="site.css">
+  <style>
+    /* Homepage welcome video */
+    .hero.hero-video {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #064b35;
+    }
+
+    .hero-video .hero-background-video {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero.hero-video::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 55, 39, 0.85),
+        rgba(0, 55, 39, 0.45)
+      );
+      pointer-events: none;
+    }
+
+    .hero-video .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -20,6 +56,7 @@
       <a href="about.html">About</a>
       <a href="businesses.html">Businesses</a>
       <a href="operations.html">Operations</a>
+      <a href="projects.html">Projects</a>
       <a href="leadership.html">Leadership</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -27,7 +64,15 @@
   </header>
 
   <main>
-    <div class="hero">
+    <div class="hero hero-video">
+      <video
+        class="hero-background-video"
+        autoplay muted loop playsinline preload="auto"
+        poster="depot-exterior.jpeg"
+        aria-hidden="true">
+        <source src="head-office-video.mp4" type="video/mp4">
+      </video>
+
       <div class="hero-inner">
         <div class="eyebrow">Welcome to Zamson Group</div>
         <h1>Building value.<br>Moving industries.</h1>
@@ -90,14 +135,13 @@
       </div>
     </section>
 
-    <!-- Upcoming Depot Extension Project -->
     <section class="soft" data-cms-project-teaser>
       <div class="two-col project-teaser">
-        <img src="Proj2.jpeg" alt="Zamson depot storage tanks and project work" loading="lazy">
+        <img src="Proj2.jpeg" alt="Zamson depot extension project" loading="lazy">
         <div class="copy">
           <div class="kicker">Upcoming project</div>
           <h2>Depot Extension Project</h2>
-          <p>Zamson Group is planning an extension of its depot facilities to strengthen storage capacity, improve operational efficiency, and support the growing demand for petroleum products.</p>
+          <p>Zamson Group is planning an extension of its depot facilities to strengthen storage capacity, improve operational efficiency, and support growing demand for petroleum products.</p>
           <p><strong>Project Location:</strong> 15 km Koko Expressway, Obitugbo, near Koko, Warri North Local Government Area, Delta State, Nigeria.</p>
           <span class="status-pill">Upcoming</span>
           <p><a class="btn" href="projects.html">View Project Details</a></p>
@@ -105,7 +149,6 @@
       </div>
     </section>
 
-    <!-- News is loaded dynamically by js/public-content.js -->
     <section>
       <div class="section-head">
         <div class="kicker">Latest updates</div>
