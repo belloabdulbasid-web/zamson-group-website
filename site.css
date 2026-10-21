@@ -157,3 +157,42 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   position: relative;
   z-index: 2;
 }
+
+
+/* Improve welcome text visibility over video */
+.hero.hero-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 35, 24, 0.88),
+    rgba(0, 35, 24, 0.58)
+  );
+  pointer-events: none;
+}
+
+.hero.hero-video .hero-inner {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.hero.hero-video .hero-inner h1 {
+  color: #ffffff !important;
+}
+
+.hero.hero-video .hero-inner p {
+  color: #ffffff !important;
+}
+
+.hero.hero-video .hero-inner .eyebrow {
+  color: #c9f278 !important;
+}
+
+.hero.hero-video .hero-inner .btn.outline {
+  color: #ffffff !important;
+  border-color: #ffffff;
+}
+
