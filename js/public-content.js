@@ -210,18 +210,20 @@
     }
 
     function moveTo(newIndex) {
-      index = ((newIndex % cards.length) + cards.length) % cards.length;
+  index = ((newIndex % cards.length) + cards.length) % cards.length;
 
-      const width = viewport.getBoundingClientRect().width;
-      track.style.transform =
-        `translate3d(-${index * width}px, 0, 0)`;
+  const card = cards[index];
+  if (card) {
+    track.style.transform =
+      `translate3d(-${card.offsetLeft}px, 0, 0)`;
+  }
 
-      dots.querySelectorAll('.news-dot').forEach((dot, i) => {
-        const active = i === index;
-        dot.classList.toggle('active', active);
-        dot.setAttribute('aria-current', active ? 'true' : 'false');
-      });
-    }
+  dots.querySelectorAll('.news-dot').forEach((dot, i) => {
+    const active = i === index;
+    dot.classList.toggle('active', active);
+    dot.setAttribute('aria-current', active ? 'true' : 'false');
+  });
+}
 
     function stopTimer() {
       if (timer !== null) {
