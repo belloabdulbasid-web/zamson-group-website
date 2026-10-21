@@ -112,3 +112,37 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     height: 36px;
   }
 }
+
+/* Homepage welcome video background */
+.hero.hero-video {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #064b35;
+}
+
+.hero-video .hero-background-video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 55, 39, 0.88),
+    rgba(0, 55, 39, 0.48)
+  );
+}
+
+.hero-video .hero-inner {
+  position: relative;
+  z-index: 1;
+}
