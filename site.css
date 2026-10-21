@@ -1,4 +1,3 @@
-
 :root{--green:#075b36;--green2:#137747;--lime:#91bd35;--ink:#173b2c;--muted:#627369;--pale:#f3f7f2;--white:#fff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff}a{color:inherit}
 header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 14px #092e1b12}
@@ -119,6 +118,7 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     height: 36px;
   }
 }
+
 
 
 /* Homepage welcome video background */
