@@ -196,3 +196,20 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   border-color: #ffffff;
 }
 
+
+/* Force all welcome text to be clearly visible */
+.hero.hero-video .hero-inner,
+.hero.hero-video .hero-inner h1,
+.hero.hero-video .hero-inner p,
+.hero.hero-video .hero-inner .eyebrow {
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65) !important;
+}
+
+.hero.hero-video .hero-inner h1,
+.hero.hero-video .hero-inner p {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
