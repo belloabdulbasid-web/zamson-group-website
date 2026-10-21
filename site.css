@@ -146,3 +146,40 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   position: relative;
   z-index: 1;
 }
+
+
+/* Homepage hero video background */
+.hero.hero-video {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #064b35;
+}
+
+.hero-video .hero-background-video {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero.hero-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 55, 39, 0.82),
+    rgba(0, 55, 39, 0.42)
+  );
+  pointer-events: none;
+}
+
+.hero-video .hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
