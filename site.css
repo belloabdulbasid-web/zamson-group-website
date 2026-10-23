@@ -1506,3 +1506,57 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     padding: 26px;
   }
 }
+
+/* Zamson Transport hero */
+.transport-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #064b35;
+  background-image:
+    linear-gradient(90deg, rgba(4, 54, 39, 0.96) 0%, rgba(4, 76, 52, 0.82) 48%, rgba(4, 76, 52, 0.30) 100%),
+    url("trucks-lineup.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 100px 5%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+}
+
+.transport-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+}
+
+.transport-hero .kicker {
+  color: #b4e936;
+}
+
+.transport-hero h1 {
+  color: #fff;
+  line-height: 1.08;
+  margin: 18px 0;
+}
+
+.transport-hero h3,
+.transport-hero p {
+  color: #fff;
+}
+
+.transport-hero p {
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .transport-hero {
+    padding: 72px 22px;
+    min-height: 460px;
+    background-position: center;
+  }
+}
