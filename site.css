@@ -1134,3 +1134,375 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     gap: 12px;
   }
 }
+
+
+/* =========================================
+   ZAMSON TRANSPORT — GREEN BRAND STYLING
+   ========================================= */
+
+.transport-page {
+  --transport-green: #064b35;
+  --transport-deep-green: #033525;
+  --transport-lime: #b5d334;
+  --transport-pale: #f1f6ee;
+  --transport-text: #26352e;
+  color: var(--transport-text);
+}
+
+.transport-page section {
+  padding: 76px max(6%, calc((100% - 1200px) / 2));
+}
+
+.transport-page .kicker {
+  color: #087448;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.transport-page h1,
+.transport-page h2,
+.transport-page h3 {
+  line-height: 1.2;
+}
+
+.transport-page h2 {
+  color: var(--transport-green);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 12px 0 20px;
+}
+
+.transport-page p {
+  line-height: 1.8;
+}
+
+/* Hero */
+.transport-page .transport-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 510px;
+  overflow: hidden;
+  padding: 80px max(6%, calc((100% - 1200px) / 2));
+  background:
+    linear-gradient(90deg, rgba(3, 45, 31, 0.94), rgba(4, 75, 53, 0.65)),
+    url("trucks-lineup.jpeg") center 55% / cover no-repeat;
+  color: white;
+}
+
+.transport-page .transport-hero-content {
+  max-width: 790px;
+}
+
+.transport-page .transport-hero .kicker {
+  color: var(--transport-lime);
+}
+
+.transport-page .transport-hero h1 {
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  margin: 18px 0;
+}
+
+.transport-page .transport-hero h3 {
+  color: #f1f6ee;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+}
+
+.transport-page .transport-hero p {
+  max-width: 720px;
+  color: #f0f5f1;
+  margin: 22px 0 28px;
+}
+
+.transport-page .btn.lime {
+  display: inline-block;
+  background: var(--transport-lime);
+  color: var(--transport-deep-green);
+  padding: 13px 22px;
+  border-radius: 6px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.transport-page .btn.lime:hover {
+  transform: translateY(-2px);
+  background: #c7e84a;
+}
+
+/* Company profile */
+.transport-page .transport-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.transport-page .transport-profile-copy p {
+  margin: 0 0 17px;
+}
+
+.transport-page .transport-facts {
+  display: grid;
+  gap: 16px;
+}
+
+.transport-page .transport-fact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid #dce8dd;
+  border-left: 5px solid #168052;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(3, 53, 37, 0.06);
+}
+
+.transport-page .transport-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--transport-pale);
+  color: #087448;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.transport-page .transport-fact small,
+.transport-page .transport-fact strong {
+  display: block;
+}
+
+.transport-page .transport-fact small {
+  margin-bottom: 5px;
+  color: #63746a;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.transport-page .transport-fact strong {
+  color: var(--transport-green);
+}
+
+/* Activities */
+.transport-page .transport-activities,
+.transport-page .transport-values {
+  background: var(--transport-pale);
+}
+
+.transport-page .section-head {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.transport-page .transport-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.transport-page .transport-activity-card {
+  padding: 28px;
+  border: 1px solid #dce8dd;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(3, 53, 37, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transport-page .transport-activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(3, 53, 37, 0.11);
+}
+
+.transport-page .transport-number {
+  display: inline-block;
+  color: #168052;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.transport-page .transport-activity-card h3 {
+  margin: 16px 0 10px;
+  color: var(--transport-green);
+}
+
+.transport-page .transport-activity-card p {
+  margin-bottom: 0;
+}
+
+/* Mission and vision */
+.transport-page .transport-purpose {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.transport-page .transport-purpose-card {
+  padding: 34px;
+  border-radius: 12px;
+  background: var(--transport-green);
+  color: #fff;
+}
+
+.transport-page .transport-purpose-card:nth-child(2) {
+  background: var(--transport-deep-green);
+}
+
+.transport-page .transport-purpose-card .kicker {
+  color: var(--transport-lime);
+}
+
+.transport-page .transport-purpose-card h2 {
+  color: #fff;
+}
+
+.transport-page .transport-purpose-card p {
+  margin-bottom: 0;
+}
+
+/* Values */
+.transport-page .transport-value-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.transport-page .transport-value-list span {
+  padding: 12px 18px;
+  border: 1px solid #c9ddca;
+  border-radius: 30px;
+  background: #fff;
+  color: var(--transport-green);
+  font-weight: 700;
+}
+
+/* Truck gallery */
+.transport-page .transport-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.transport-page .transport-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(3, 53, 37, 0.09);
+}
+
+.transport-page .transport-gallery img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.transport-page .transport-gallery figure:hover img {
+  transform: scale(1.04);
+}
+
+.transport-page .transport-gallery figcaption {
+  padding: 16px 18px;
+  color: var(--transport-green);
+  font-weight: 700;
+}
+
+/* Contact banner */
+.transport-page .transport-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  margin: 0 auto 40px;
+  width: 88%;
+  max-width: 1200px;
+  padding: 36px;
+  border-radius: 14px;
+  background: var(--transport-green);
+  color: #fff;
+}
+
+.transport-page .transport-contact .kicker {
+  color: var(--transport-lime);
+}
+
+.transport-page .transport-contact h2 {
+  color: #fff;
+}
+
+.transport-page .transport-phone {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.transport-page .transport-back {
+  padding: 0 6% 55px;
+  text-align: center;
+}
+
+.transport-page .text-link {
+  color: #087448;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.transport-page .text-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile and tablet */
+@media (max-width: 900px) {
+  .transport-page .transport-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .transport-page .transport-activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .transport-page .transport-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .transport-page section {
+    padding: 48px 6%;
+  }
+
+  .transport-page .transport-hero {
+    min-height: 470px;
+    padding: 60px 6%;
+    background-position: center;
+  }
+
+  .transport-page .transport-activity-grid,
+  .transport-page .transport-purpose,
+  .transport-page .transport-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .transport-page .transport-gallery img {
+    height: 230px;
+  }
+
+  .transport-page .transport-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    margin: 0 6% 30px;
+    padding: 26px;
+  }
+}
