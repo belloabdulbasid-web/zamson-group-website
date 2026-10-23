@@ -6,12 +6,388 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Zamson Global Resources Limited provides engineering, procurement, construction and technical services in Nigeria.">
   <title>Zamson Global Resources Limited | Zamson Group</title>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    /* Zamson green theme — specific to this subsidiary page */
+    .global-resources-page {
+      --global-green: #075d3b;
+      --global-dark: #063a28;
+      --global-lime: #b8e65a;
+      --global-pale: #f1f7f0;
+      --global-border: #dce9dc;
+      color: #183b2b;
+    }
+
+    .global-resources-page section {
+      padding: 64px max(5%, calc((100% - 1200px) / 2));
+    }
+
+    .global-resources-page h2,
+    .global-resources-page h3 {
+      line-height: 1.25;
+    }
+
+    .global-resources-page h2 {
+      color: var(--global-dark);
+      margin: 10px 0 18px;
+    }
+
+    .global-resources-page p {
+      line-height: 1.8;
+    }
+
+    .global-resources-page .kicker {
+      color: var(--global-green);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* Hero */
+    .global-resources-page .global-hero {
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(4,48,32,.96), rgba(5,93,59,.72)),
+        url("depot-exterior.jpeg") center / cover no-repeat;
+    }
+
+    .global-hero-content {
+      max-width: 760px;
+    }
+
+    .global-resources-page .global-hero .kicker {
+      color: var(--global-lime);
+    }
+
+    .global-resources-page .global-hero h1 {
+      color: white;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.12;
+      margin: 18px 0;
+    }
+
+    .global-resources-page .global-hero p {
+      color: #f1f7f2;
+      max-width: 650px;
+      font-size: 1.08rem;
+    }
+
+    .global-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .global-resources-page .global-hero .btn.lime {
+      background: var(--global-lime);
+      color: var(--global-dark);
+      border: 1px solid var(--global-lime);
+    }
+
+    .global-outline-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 20px;
+      border: 1px solid white;
+      border-radius: 7px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Company profile */
+    .global-profile {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .global-profile-copy p {
+      margin: 14px 0;
+    }
+
+    .global-company-facts {
+      padding: 10px 24px;
+      background: var(--global-pale);
+      border: 1px solid var(--global-border);
+      border-radius: 12px;
+    }
+
+    .global-fact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0;
+    }
+
+    .global-fact + .global-fact {
+      border-top: 1px solid var(--global-border);
+    }
+
+    .global-fact-icon {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--global-green);
+      color: white;
+      font-size: 1.35rem;
+    }
+
+    .global-fact-label {
+      display: block;
+      margin-bottom: 7px;
+      color: #54705e;
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .global-fact strong {
+      color: var(--global-dark);
+      line-height: 1.5;
+    }
+
+    /* Services */
+    .global-resources-page .global-services {
+      background: var(--global-dark);
+      color: white;
+    }
+
+    .global-services-intro {
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .global-resources-page .global-services h2 {
+      color: white;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    .global-resources-page .global-services .kicker {
+      color: var(--global-lime);
+    }
+
+    .global-service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .global-service-card {
+      padding: 26px;
+      background: white;
+      color: #183b2b;
+      border-radius: 10px;
+      border-top: 4px solid var(--global-lime);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .global-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.15);
+    }
+
+    .global-service-number {
+      color: #5d8d35;
+      font-size: .85rem;
+      font-weight: 800;
+    }
+
+    .global-service-card h3 {
+      margin: 16px 0 10px;
+      color: var(--global-dark);
+    }
+
+    .global-service-card p {
+      margin-bottom: 0;
+      font-size: .94rem;
+    }
+
+    /* Mission and goals */
+    .global-resources-page .global-purpose {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      background: var(--global-pale);
+    }
+
+    .global-mission,
+    .global-goals {
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--global-border);
+      border-radius: 12px;
+    }
+
+    .global-goals ul {
+      padding-left: 22px;
+    }
+
+    .global-goals li {
+      padding: 7px 0;
+      line-height: 1.6;
+    }
+
+    /* Values */
+    .global-resources-page .global-values {
+      background: var(--global-green);
+      color: white;
+    }
+
+    .global-resources-page .global-values h2 {
+      color: white;
+    }
+
+    .global-resources-page .global-values .kicker {
+      color: var(--global-lime);
+    }
+
+    .global-value-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .global-value-list span {
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 30px;
+      font-weight: 700;
+    }
+
+    /* Gallery */
+    .global-resources-page .global-gallery-section {
+      background: white;
+    }
+
+    .global-resources-page .global-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .global-gallery figure {
+      margin: 0;
+      overflow: hidden;
+      background: var(--global-pale);
+      border: 1px solid var(--global-border);
+      border-radius: 10px;
+    }
+
+    .global-gallery img {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform .25s ease;
+    }
+
+    .global-gallery figure:hover img {
+      transform: scale(1.035);
+    }
+
+    .global-gallery figcaption {
+      padding: 15px 18px;
+      color: var(--global-dark);
+      font-weight: 700;
+    }
+
+    /* Contact */
+    .global-resources-page .global-contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      background: var(--global-pale);
+      border-top: 1px solid var(--global-border);
+    }
+
+    .global-contact > div {
+      max-width: 720px;
+    }
+
+    .global-contact-phones {
+      color: var(--global-green);
+      font-weight: 800;
+    }
+
+    .global-resources-page .global-back-link {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    .global-resources-page .text-link {
+      color: var(--global-green);
+      font-weight: 700;
+    }
+
+    @media (max-width: 850px) {
+      .global-profile,
+      .global-resources-page .global-purpose {
+        grid-template-columns: 1fr;
+      }
+
+      .global-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .global-resources-page .global-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .global-resources-page .global-contact {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .global-resources-page section {
+        padding: 42px 20px;
+      }
+
+      .global-resources-page .global-hero {
+        min-height: 360px;
+      }
+
+      .global-service-grid,
+      .global-resources-page .global-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .global-gallery img {
+        height: 230px;
+      }
+
+      .global-company-facts,
+      .global-mission,
+      .global-goals {
+        padding: 18px;
+      }
+
+      .global-hero-actions {
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <a class="brand" href="index.html">
-      <img src="assets/company-logo.jpeg" alt="Zamson Group logo">
+      <img src="company-logo.jpeg" alt="Zamson Group logo">
       <span>ZAMSON GROUP</span>
     </a>
 
@@ -24,6 +400,7 @@
       <a href="about.html">About</a>
       <a href="businesses.html" class="active">Businesses</a>
       <a href="operations.html">Operations</a>
+      <a href="projects.html">Projects</a>
       <a href="leadership.html">Leadership</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -33,7 +410,6 @@
 
   <main class="global-resources-page">
 
-    <!-- HERO -->
     <section class="global-hero">
       <div class="global-hero-content">
         <div class="kicker">Engineering · Procurement · Construction</div>
@@ -49,12 +425,10 @@
       </div>
     </section>
 
-    <!-- COMPANY PROFILE -->
     <section class="global-profile">
       <div class="global-profile-copy">
         <div class="kicker">Company Profile</div>
         <h2>About Zamson Global Resources Limited</h2>
-
         <p>
           Zamson Global Resources Limited is a Nigerian multidisciplinary
           technical services company incorporated in 2003. The company
@@ -62,13 +436,11 @@
           electrical engineering, procurement, construction and related
           technical solutions.
         </p>
-
         <p>
           Our approach combines established technology, innovation and
           practical expertise to support projects from planning and
           development through construction and plant upgrades.
         </p>
-
         <p>
           We are committed to delivering cost-effective solutions,
           maintaining service quality and building lasting relationships
@@ -78,23 +450,21 @@
 
       <div class="global-company-facts">
         <div class="global-fact">
-          <span class="global-fact-icon">▦</span>
+          <span class="global-fact-icon" aria-hidden="true">▦</span>
           <div>
             <span class="global-fact-label">Year Incorporated</span>
             <strong>2003</strong>
           </div>
         </div>
-
         <div class="global-fact">
-          <span class="global-fact-icon">✓</span>
+          <span class="global-fact-icon" aria-hidden="true">✓</span>
           <div>
             <span class="global-fact-label">CAC Registration Number</span>
             <strong>RC 493831</strong>
           </div>
         </div>
-
         <div class="global-fact">
-          <span class="global-fact-icon">♙</span>
+          <span class="global-fact-icon" aria-hidden="true">♙</span>
           <div>
             <span class="global-fact-label">Chairman / Founder</span>
             <strong>Alhaji Zayyanu Musa Bashir</strong>
@@ -103,7 +473,6 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section class="global-services" id="global-services">
       <div class="global-services-intro">
         <div class="kicker">What We Do</div>
@@ -118,59 +487,36 @@
         <article class="global-service-card">
           <span class="global-service-number">01</span>
           <h3>Civil Engineering</h3>
-          <p>
-            Engineering support for construction projects and related
-            infrastructure requirements.
-          </p>
+          <p>Engineering support for construction projects and related infrastructure requirements.</p>
         </article>
-
         <article class="global-service-card">
           <span class="global-service-number">02</span>
           <h3>Electrical Engineering</h3>
-          <p>
-            Electrical engineering services for projects and facilities.
-          </p>
+          <p>Electrical engineering services for projects and facilities.</p>
         </article>
-
         <article class="global-service-card">
           <span class="global-service-number">03</span>
           <h3>Procurement</h3>
-          <p>
-            Procurement support for project materials, equipment and
-            other approved requirements.
-          </p>
+          <p>Procurement support for project materials, equipment and other approved requirements.</p>
         </article>
-
         <article class="global-service-card">
           <span class="global-service-number">04</span>
           <h3>Construction</h3>
-          <p>
-            Construction-related services supporting project delivery
-            and infrastructure development.
-          </p>
+          <p>Construction-related services supporting project delivery and infrastructure development.</p>
         </article>
-
         <article class="global-service-card">
           <span class="global-service-number">05</span>
           <h3>Engineering Services</h3>
-          <p>
-            Technical support and engineering solutions tailored to
-            project requirements.
-          </p>
+          <p>Technical support and engineering solutions tailored to project requirements.</p>
         </article>
-
         <article class="global-service-card">
           <span class="global-service-number">06</span>
           <h3>Project Development</h3>
-          <p>
-            Support across project planning, development, construction
-            and plant upgrades.
-          </p>
+          <p>Support across project planning, development, construction and plant upgrades.</p>
         </article>
       </div>
     </section>
 
-    <!-- MISSION AND GOALS -->
     <section class="global-purpose">
       <div class="global-mission">
         <div class="kicker">Our Mission</div>
@@ -180,11 +526,9 @@
           construction works that deliver value and client satisfaction.
         </p>
       </div>
-
       <div class="global-goals">
         <div class="kicker">Our Goals</div>
         <h2>What Guides Us</h2>
-
         <ul>
           <li>Customer service and continuous improvement</li>
           <li>A safe and positive workplace for employees</li>
@@ -195,7 +539,6 @@
       </div>
     </section>
 
-    <!-- VALUES -->
     <section class="global-values">
       <div>
         <div class="kicker">Our Values</div>
@@ -205,7 +548,6 @@
           teamwork, responsible practices and a commitment to our clients.
         </p>
       </div>
-
       <div class="global-value-list">
         <span>Integrity</span>
         <span>Safety</span>
@@ -216,36 +558,28 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section class="global-gallery-section">
       <div class="section-head">
         <div class="kicker">Company Gallery</div>
         <h2>Our Facilities and Activities</h2>
         <p>Explore photographs supplied for the Zamson Group website.</p>
       </div>
-
       <div class="gallery global-gallery">
         <figure>
-          <img src="assets/depot-exterior.jpeg"
-               alt="Zamson depot exterior">
+          <img src="depot-exterior.jpeg" alt="Zamson depot exterior" loading="lazy">
           <figcaption>Depot Facilities</figcaption>
         </figure>
-
         <figure>
-          <img src="assets/depot-loading.jpeg"
-               alt="Petroleum depot loading area">
+          <img src="depot-loading.jpeg" alt="Petroleum depot loading area" loading="lazy">
           <figcaption>Loading Operations</figcaption>
         </figure>
-
         <figure>
-          <img src="assets/storage-tank.jpeg"
-               alt="Storage tank infrastructure">
+          <img src="storage-tank.jpeg" alt="Storage tank infrastructure" loading="lazy">
           <figcaption>Industrial Infrastructure</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="global-contact">
       <div>
         <div class="kicker">Let's Work Together</div>
@@ -258,14 +592,11 @@
           0808 888 8837 &nbsp; | &nbsp; 0805 177 7777
         </p>
       </div>
-
       <a class="btn lime" href="contact.html">Contact the Group →</a>
     </section>
 
     <section class="global-back-link">
-      <a class="text-link" href="businesses.html">
-        ← Back to all Zamson Group businesses
-      </a>
+      <a class="text-link" href="businesses.html">← Back to all Zamson Group businesses</a>
     </section>
 
   </main>
@@ -274,29 +605,21 @@
     <div class="foot">
       <div>
         <h3>ZAMSON GROUP</h3>
-        <p>
-          Energy, infrastructure and logistics capabilities supporting
-          business and communities.
-        </p>
+        <p>Energy, infrastructure and logistics capabilities supporting business and communities.</p>
       </div>
-
       <div>
         <h3>Explore</h3>
         <a href="about.html">About Us</a>
         <a href="businesses.html">Our Businesses</a>
         <a href="operations.html">Operations</a>
       </div>
-
       <div>
         <h3>Connect</h3>
         <a href="leadership.html">Leadership</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>
-
-    <div class="copyright">
-      © Zamson Group. All rights reserved.
-    </div>
+    <div class="copyright">© Zamson Group. All rights reserved.</div>
   </footer>
 
   <script src="js/site.js"></script>
