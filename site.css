@@ -333,3 +333,393 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     padding: 22px;
   }
 }
+
+
+/* ========================================
+   ZAMSON GLOBAL RESOURCES PAGE
+   Existing Zamson green branding
+======================================== */
+
+.global-resources-page {
+  --global-green: #075d3b;
+  --global-dark: #063a28;
+  --global-lime: #b8e65a;
+  --global-pale: #f1f7f0;
+  --global-border: #dce9dc;
+  color: #183b2b;
+}
+
+.global-resources-page section {
+  padding: 64px max(5%, calc((100% - 1200px) / 2));
+}
+
+.global-resources-page h1,
+.global-resources-page h2,
+.global-resources-page h3 {
+  line-height: 1.2;
+}
+
+.global-resources-page h2 {
+  color: var(--global-dark);
+  margin: 10px 0 18px;
+}
+
+.global-resources-page p {
+  line-height: 1.8;
+}
+
+.global-resources-page .kicker {
+  color: var(--global-green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.global-resources-page .global-hero {
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(4, 48, 32, 0.96),
+    rgba(5, 93, 59, 0.72)),
+    url("../assets/depot-exterior.jpeg") center / cover no-repeat;
+}
+
+.global-hero-content {
+  max-width: 760px;
+}
+
+.global-resources-page .global-hero .kicker {
+  color: var(--global-lime);
+}
+
+.global-resources-page .global-hero h1 {
+  color: white;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin: 18px 0;
+}
+
+.global-resources-page .global-hero p {
+  max-width: 650px;
+  font-size: 1.08rem;
+  color: #f1f7f2;
+}
+
+.global-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.global-resources-page .btn.lime {
+  background: var(--global-lime);
+  color: var(--global-dark);
+  border: 1px solid var(--global-lime);
+}
+
+.global-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 7px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Company profile */
+.global-profile {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.global-profile-copy p {
+  margin: 14px 0;
+}
+
+.global-company-facts {
+  padding: 10px 24px;
+  background: var(--global-pale);
+  border-radius: 12px;
+  border: 1px solid var(--global-border);
+}
+
+.global-fact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+}
+
+.global-fact + .global-fact {
+  border-top: 1px solid var(--global-border);
+}
+
+.global-fact-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--global-green);
+  color: white;
+  font-size: 1.35rem;
+}
+
+.global-fact-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #54705e;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.global-fact strong {
+  color: var(--global-dark);
+  line-height: 1.5;
+}
+
+/* Services */
+.global-resources-page .global-services {
+  background: var(--global-dark);
+  color: white;
+}
+
+.global-services-intro {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.global-resources-page .global-services h2 {
+  color: white;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.global-resources-page .global-services .kicker {
+  color: var(--global-lime);
+}
+
+.global-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.global-service-card {
+  padding: 26px;
+  background: #fff;
+  color: #183b2b;
+  border-radius: 10px;
+  border-top: 4px solid var(--global-lime);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.global-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.global-service-number {
+  color: #5d8d35;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.global-service-card h3 {
+  margin: 16px 0 10px;
+  color: var(--global-dark);
+}
+
+.global-service-card p {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+}
+
+/* Mission and goals */
+.global-resources-page .global-purpose {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  background: var(--global-pale);
+}
+
+.global-mission,
+.global-goals {
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--global-border);
+}
+
+.global-mission p {
+  font-size: 1.05rem;
+}
+
+.global-goals ul {
+  padding-left: 22px;
+}
+
+.global-goals li {
+  padding: 7px 0;
+  line-height: 1.6;
+}
+
+/* Company values */
+.global-resources-page .global-values {
+  background: var(--global-green);
+  color: white;
+}
+
+.global-resources-page .global-values h2 {
+  color: white;
+}
+
+.global-resources-page .global-values .kicker {
+  color: var(--global-lime);
+}
+
+.global-value-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.global-value-list span {
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+/* Gallery */
+.global-resources-page .global-gallery-section {
+  background: white;
+}
+
+.global-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.global-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  background: var(--global-pale);
+  border: 1px solid var(--global-border);
+  border-radius: 10px;
+}
+
+.global-gallery img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.global-gallery figure:hover img {
+  transform: scale(1.035);
+}
+
+.global-gallery figcaption {
+  padding: 15px 18px;
+  color: var(--global-dark);
+  font-weight: 700;
+}
+
+/* Contact callout */
+.global-resources-page .global-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: var(--global-pale);
+  border-top: 1px solid var(--global-border);
+}
+
+.global-contact > div {
+  max-width: 720px;
+}
+
+.global-contact-phones {
+  color: var(--global-green);
+  font-weight: 800;
+}
+
+.global-resources-page .global-back-link {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.global-resources-page .text-link {
+  color: var(--global-green);
+  font-weight: 700;
+}
+
+/* Responsive layout */
+@media (max-width: 850px) {
+  .global-profile,
+  .global-resources-page .global-purpose {
+    grid-template-columns: 1fr;
+  }
+
+  .global-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .global-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .global-resources-page .global-contact {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .global-resources-page section {
+    padding: 42px 20px;
+  }
+
+  .global-resources-page .global-hero {
+    min-height: 360px;
+  }
+
+  .global-service-grid,
+  .global-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .global-gallery img {
+    height: 230px;
+  }
+
+  .global-company-facts,
+  .global-mission,
+  .global-goals {
+    padding: 18px;
+  }
+
+  .global-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .global-hero-actions .btn,
+  .global-outline-btn {
+    justify-content: center;
+  }
+}
