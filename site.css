@@ -723,3 +723,414 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     justify-content: center;
   }
 }
+
+
+/* =========================================
+   ZAMSON TRANSPORT PAGE
+   Corporate green, lime and white styling
+========================================= */
+
+.transport-page {
+  --transport-green: #064b35;
+  --transport-dark: #033b2b;
+  --transport-lime: #b4e83e;
+  --transport-pale: #eef6f0;
+  --transport-border: #d5e8dc;
+  color: #143d30;
+}
+
+.transport-page .kicker {
+  color: #6ba91d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.transport-page h1,
+.transport-page h2,
+.transport-page h3 {
+  color: var(--transport-green);
+  line-height: 1.2;
+}
+
+.transport-page p {
+  line-height: 1.8;
+}
+
+.transport-page .btn.lime {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 6px;
+  background: var(--transport-lime);
+  color: var(--transport-dark);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.transport-page .btn.lime:hover {
+  background: #c7f36a;
+  transform: translateY(-2px);
+}
+
+/* Hero banner */
+.transport-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 390px;
+  padding: 64px max(5%, calc((100% - 1200px) / 2));
+  overflow: hidden;
+  background:
+    linear-gradient(90deg,
+      rgba(0, 55, 39, 0.96) 0%,
+      rgba(0, 70, 48, 0.86) 42%,
+      rgba(0, 70, 48, 0.16) 100%),
+    url("../assets/trucks-lineup.jpeg") center 55% / cover no-repeat;
+}
+
+.transport-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
+}
+
+.transport-hero .kicker {
+  color: var(--transport-lime);
+}
+
+.transport-hero h1 {
+  margin: 15px 0;
+  color: #fff;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+}
+
+.transport-hero h3 {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.transport-hero p {
+  max-width: 570px;
+  margin-bottom: 25px;
+  color: #f1f8f3;
+}
+
+/* Company profile */
+.transport-profile {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  padding: 64px max(5%, calc((100% - 1200px) / 2));
+  background: linear-gradient(110deg, #f7fbf7, #eaf4ed);
+}
+
+.transport-profile-copy h2,
+.transport-activities h2,
+.transport-values h2,
+.transport-gallery-section h2 {
+  margin: 10px 0 16px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.transport-profile-copy p {
+  margin-bottom: 16px;
+}
+
+.transport-facts {
+  padding: 25px;
+  border: 1px solid var(--transport-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.transport-fact {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 5px;
+}
+
+.transport-fact + .transport-fact {
+  border-top: 1px solid var(--transport-border);
+}
+
+.transport-icon {
+  display: grid;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--transport-green);
+  color: var(--transport-lime);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.transport-fact small,
+.transport-fact strong {
+  display: block;
+}
+
+.transport-fact small {
+  margin-bottom: 7px;
+  color: #668073;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.transport-fact strong {
+  color: var(--transport-green);
+}
+
+/* Business activities */
+.transport-activities,
+.transport-values,
+.transport-gallery-section {
+  padding: 64px max(5%, calc((100% - 1200px) / 2));
+}
+
+.transport-activities .section-head,
+.transport-values .section-head,
+.transport-gallery-section .section-head {
+  margin-bottom: 28px;
+}
+
+.transport-activities .section-head > p,
+.transport-values .section-head > p,
+.transport-gallery-section .section-head > p {
+  max-width: 700px;
+}
+
+.transport-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.transport-activity-card {
+  position: relative;
+  min-height: 210px;
+  padding: 28px;
+  border: 1px solid var(--transport-border);
+  border-radius: 9px;
+  background: linear-gradient(145deg, #f7fbf7, #edf6ef);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transport-activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(6, 75, 53, 0.1);
+}
+
+.transport-number {
+  display: block;
+  margin-bottom: 20px;
+  color: #79b52b;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.transport-activity-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.transport-activity-card p {
+  margin: 0;
+  color: #426657;
+  font-size: 0.95rem;
+}
+
+/* Mission and vision */
+.transport-purpose {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 56px max(5%, calc((100% - 1200px) / 2));
+  background: var(--transport-pale);
+}
+
+.transport-purpose-card {
+  padding: 32px;
+  border-left: 5px solid #8fca32;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.transport-purpose-card h2 {
+  margin: 12px 0;
+  font-size: 1.7rem;
+}
+
+.transport-purpose-card p {
+  margin-bottom: 0;
+}
+
+/* Values */
+.transport-value-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.transport-value-list span {
+  padding: 12px 19px;
+  border: 1px solid #cfe3d5;
+  border-radius: 30px;
+  background: #f0f7f1;
+  color: var(--transport-green);
+  font-weight: 700;
+}
+
+/* Fleet gallery */
+.transport-gallery-section {
+  background: #f0f7f2;
+}
+
+.transport-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.transport-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--transport-green);
+  box-shadow: 0 5px 18px rgba(0, 50, 30, 0.1);
+}
+
+.transport-gallery img {
+  display: block;
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.transport-gallery figure:hover img {
+  transform: scale(1.04);
+}
+
+.transport-gallery figcaption {
+  padding: 13px 16px;
+  background: var(--transport-green);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Contact callout */
+.transport-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 48px max(5%, calc((100% - 1200px) / 2));
+  background:
+    linear-gradient(90deg,
+      rgba(0, 62, 43, 0.97),
+      rgba(0, 79, 52, 0.88)),
+    url("../assets/trucks-lineup.jpeg") center / cover no-repeat;
+  color: #fff;
+}
+
+.transport-contact h2 {
+  margin: 10px 0;
+  color: #fff;
+}
+
+.transport-contact .kicker {
+  color: var(--transport-lime);
+}
+
+.transport-contact p {
+  max-width: 650px;
+  margin-bottom: 12px;
+  color: #f1f8f3;
+}
+
+.transport-phone {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.transport-back {
+  padding: 18px max(5%, calc((100% - 1200px) / 2));
+  background: #f7fbf7;
+}
+
+.transport-back .text-link {
+  color: var(--transport-green);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .transport-profile {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .transport-activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .transport-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .transport-hero {
+    min-height: 430px;
+    padding: 48px 22px;
+    background:
+      linear-gradient(90deg,
+        rgba(0, 55, 39, 0.94),
+        rgba(0, 70, 48, 0.65)),
+      url("../assets/trucks-lineup.jpeg") center / cover no-repeat;
+  }
+
+  .transport-profile,
+  .transport-activities,
+  .transport-values,
+  .transport-gallery-section,
+  .transport-purpose {
+    padding: 42px 22px;
+  }
+
+  .transport-activity-grid,
+  .transport-gallery,
+  .transport-purpose {
+    grid-template-columns: 1fr;
+  }
+
+  .transport-activity-card {
+    min-height: auto;
+  }
+
+  .transport-gallery img {
+    height: 230px;
+  }
+
+  .transport-contact {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 40px 22px;
+  }
+
+  .transport-facts {
+    padding: 14px;
+  }
+
+  .transport-fact {
+    gap: 12px;
+  }
+}
