@@ -1,5 +1,423 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Zamson Group - energy, petroleum storage, retail distribution and logistics in Nigeria."><title>Leadership | Zamson Group</title><link rel="stylesheet" href="site.css"></head><body><header><a class="brand" href="index.html"><img src="company-logo.jpeg" alt="Zamson Group logo"><span>ZAMSON GROUP</span></a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="businesses.html" class="">Businesses</a><a href="operations.html" class="">Operations</a><a href="leadership.html" class="active">Leadership</a><a href="contact.html" class="">Contact</a></nav><a class="btn header-cta" href="contact.html">Contact Us</a></header><main><div class="page-hero"><div class="eyebrow">Leadership</div><h1>Guided by leadership and purpose.</h1><p>Leadership provides direction for the Group's businesses, people and long-term development.</p></div>
-<section><div class="leadership-grid" data-cms-leadership>
-<div class="leader"><img src="managing-director.jpeg" alt="Alhaji Zayyanu Musa Bashir, Managing Director of Zamson Group"><div class="copy"><div class="kicker">Group Leadership</div><h2>Alhaji Zayyanu Musa Bashir</h2><p class="leader-role">Managing Director</p><p>Alhaji Zayyanu Musa Bashir provides strategic direction across the Group's businesses and supports its commitment to responsible operations, reliable service delivery and sustainable growth.</p></div></div>
-<div class="leader"><img src="COO.jpeg" alt="Alhaji Bala Usman Dan Manu, Chief Operating Officer of Zamson Group"><div class="copy"><div class="kicker">Group Leadership</div><h2>Alhaji Bala Usman Dan Manu</h2><p class="leader-role">Chief Operating Officer (COO)</p><p>Alhaji Bala Usman Dan Manu oversees the coordination of the Group's day-to-day operations, supporting operational performance and the effective delivery of services across its businesses.</p></div></div>
-</div></section></main><footer><div class="foot"><div><h3>ZAMSON GROUP</h3><p>Energy, infrastructure and logistics capabilities supporting business and communities.</p></div><div><h3>Explore</h3><a href="about.html">About Us</a><a href="businesses.html">Our Businesses</a><a href="operations.html">Operations</a></div><div><h3>Connect</h3><a href="leadership.html">Leadership</a><a href="contact.html">Contact</a></div></div><div class="copyright">© Zamson Group. Company profile information and official contact details should be confirmed before publication.</div></footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/supabase-config.js"></script><script src="js/site.js"></script><script src="js/public-content.js"></script></body></html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet the leadership of Zamson Group, led by Founder and Chairman Alhaji Zayyanu Musa Bashir.">
+  <title>Leadership | Zamson Group</title>
+
+  <link rel="stylesheet" href="site.css?v=7">
+
+  <style>
+    /* Executive Luxury leadership design */
+    .leadership-intro {
+      background: linear-gradient(135deg, #063e29, #0b6843);
+      color: white;
+      padding: 65px 24px;
+    }
+
+    .leadership-intro .eyebrow {
+      color: #d5e99a;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .leadership-intro h1 {
+      color: white;
+      max-width: 850px;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.1;
+      margin: 15px 0;
+    }
+
+    .leadership-intro p {
+      max-width: 700px;
+      color: #e3eee7;
+      line-height: 1.8;
+    }
+
+    .leadership-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 65px 24px;
+    }
+
+    .chairman-profile {
+      display: grid;
+      grid-template-columns: minmax(280px, .85fr) 1.15fr;
+      align-items: center;
+      gap: clamp(30px, 5vw, 70px);
+      margin-bottom: 75px;
+    }
+
+    .chairman-photo-wrap {
+      position: relative;
+      padding: 0 0 16px 16px;
+    }
+
+    .chairman-photo-wrap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 72%;
+      height: 75%;
+      background: #d7e8c5;
+      border-radius: 10px;
+      z-index: 0;
+    }
+
+    .chairman-photo {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 490px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 10px;
+      box-shadow: 0 18px 45px rgba(4, 50, 31, .14);
+      background: #f1f4ef;
+    }
+
+    .chairman-copy .kicker {
+      color: #8b742c;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .chairman-copy h2 {
+      color: #075b39;
+      font-size: clamp(32px, 4vw, 49px);
+      line-height: 1.15;
+      margin: 17px 0 12px;
+    }
+
+    .chairman-role {
+      color: #987c32;
+      font-weight: 700;
+      font-size: 19px;
+      margin: 0 0 22px;
+    }
+
+    .chairman-copy p {
+      color: #5c6a62;
+      line-height: 1.9;
+      max-width: 650px;
+    }
+
+    .chairman-rule {
+      width: 70px;
+      height: 4px;
+      background: #b6d34c;
+      margin: 25px 0;
+    }
+
+    .leadership-divider {
+      height: 1px;
+      background: #e4e9e3;
+      margin: 10px 0 55px;
+    }
+
+    .team-heading {
+      margin-bottom: 30px;
+    }
+
+    .team-heading .kicker {
+      color: #987c32;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .team-heading h2 {
+      color: #075b39;
+      font-size: clamp(28px, 3vw, 38px);
+      margin: 10px 0;
+    }
+
+    .team-heading p {
+      color: #64736a;
+      line-height: 1.7;
+    }
+
+    .executive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .executive-card {
+      overflow: hidden;
+      border: 1px solid #e5ebe5;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 8px 30px rgba(0, 45, 26, .055);
+    }
+
+    .executive-card img {
+      display: block;
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 20%;
+      background: #f1f4ef;
+    }
+
+    .executive-card-body {
+      padding: 25px;
+    }
+
+    .executive-card-body .kicker {
+      color: #987c32;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .executive-card-body h3 {
+      color: #075b39;
+      font-size: 23px;
+      line-height: 1.35;
+      margin: 10px 0;
+    }
+
+    .executive-card-body .leader-role {
+      color: #6b756e;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .executive-card-body p {
+      color: #667169;
+      line-height: 1.8;
+    }
+
+    .leadership-contact {
+      background: #f3f6f0;
+      padding: 48px 24px;
+    }
+
+    .leadership-contact-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .leadership-contact h2 {
+      color: #075b39;
+      margin-top: 0;
+    }
+
+    .leadership-contact p {
+      color: #5d6b62;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 760px) {
+      .leadership-intro {
+        padding: 45px 22px;
+      }
+
+      .leadership-section {
+        padding: 42px 20px;
+      }
+
+      .chairman-profile {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 48px;
+      }
+
+      .chairman-photo {
+        height: min(115vw, 480px);
+      }
+
+      .executive-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .executive-card img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="company-logo.jpeg" alt="Zamson Group logo">
+    <span>ZAMSON GROUP</span>
+  </a>
+
+  <button class="menu-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false">☰</button>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="businesses.html">Businesses</a>
+    <a href="operations.html">Operations</a>
+    <a href="leadership.html" class="active">Leadership</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <a class="btn header-cta" href="contact.html">Contact Us</a>
+</header>
+
+<main>
+
+  <!-- LEADERSHIP INTRODUCTION -->
+  <section class="leadership-intro">
+    <div class="eyebrow">Leadership & Legacy</div>
+    <h1>Leadership built on vision, purpose and legacy.</h1>
+    <p>
+      Meet the people guiding Zamson Group's businesses, supporting
+      operational excellence and shaping the Group's future.
+    </p>
+  </section>
+
+  <!-- FOUNDER AND CHAIRMAN: ALWAYS FIRST -->
+  <section class="leadership-section">
+
+    <div class="chairman-profile">
+
+      <div class="chairman-photo-wrap">
+        <img
+          class="chairman-photo"
+          src="managing-director.jpeg"
+          alt="Alhaji Zayyanu Musa Bashir, Founder and Chairman of Zamson Group"
+          onerror="this.onerror=null;this.src='assets/managing-director.jpeg';">
+      </div>
+
+      <div class="chairman-copy">
+        <div class="kicker">Founder & Chairman</div>
+
+        <h2>Alhaji Zayyanu Musa Bashir</h2>
+
+        <p class="chairman-role">
+          Founder and Chairman, Zamson Group
+        </p>
+
+        <div class="chairman-rule"></div>
+
+        <p>
+          Alhaji Zayyanu Musa Bashir is the Founder and Chairman of
+          Zamson Group and its subsidiary companies. His leadership
+          and vision have helped shape the Group's development across
+          its business activities.
+        </p>
+
+        <p>
+          As Chairman, he provides leadership and direction for the
+          Group, supporting its long-term objectives and continued
+          development.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="leadership-divider"></div>
+
+    <!-- OTHER LEADERS -->
+    <div class="team-heading">
+      <div class="kicker">Executive Leadership</div>
+      <h2>Our Leadership Team</h2>
+      <p>
+        The executives supporting the Group's businesses and daily
+        operations.
+      </p>
+    </div>
+
+    <div class="executive-grid">
+
+      <article class="executive-card">
+        <img
+          src="COO.jpeg"
+          alt="Alhaji Bala Usman Dan Manu, Chief Operating Officer"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='assets/COO.jpeg';">
+
+        <div class="executive-card-body">
+          <div class="kicker">Executive Leadership</div>
+          <h3>Alhaji Bala Usman Dan Manu</h3>
+          <p class="leader-role">Chief Operating Officer (COO)</p>
+          <p>
+            Alhaji Bala Usman Dan Manu supports the coordination of
+            the Group's day-to-day operations and the delivery of
+            services across its businesses.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="leadership-contact">
+    <div class="leadership-contact-inner">
+      <div>
+        <div class="kicker">Connect with us</div>
+        <h2>Learn more about Zamson Group</h2>
+        <p>
+          Contact our team for company information, business enquiries
+          and other general enquiries.
+        </p>
+      </div>
+
+      <a class="btn" href="contact.html">Contact Us</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <h3>ZAMSON GROUP</h3>
+      <p>
+        Energy, infrastructure and logistics capabilities supporting
+        business and communities.
+      </p>
+    </div>
+
+    <div>
+      <h3>Explore</h3>
+      <a href="about.html">About Us</a>
+      <a href="businesses.html">Our Businesses</a>
+      <a href="operations.html">Operations</a>
+    </div>
+
+    <div>
+      <h3>Connect</h3>
+      <a href="leadership.html">Leadership</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © Zamson Group. All rights reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/site.js"></script>
+
+</body>
+</html>
