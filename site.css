@@ -1914,3 +1914,57 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     flex-direction: column;
   }
 }
+
+
+/* Zamson Group mobile navigation */
+@media (max-width: 760px) {
+  header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  header .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1002;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    width: 100%;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding: 12px 20px 22px;
+    background: #fff;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, .12);
+  }
+
+  header nav.mobile-nav-open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  header nav a {
+    display: block;
+    padding: 15px 8px;
+    border-bottom: 1px solid #e6ece7;
+    color: #075b39;
+    text-decoration: none;
+  }
+
+  header nav a:last-child {
+    border-bottom: 0;
+  }
+}
+
