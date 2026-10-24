@@ -1968,3 +1968,62 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   }
 }
 
+
+/* MOBILE MENU — MATCHES site.js */
+@media (max-width: 760px) {
+  header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  header .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1002;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  header nav {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: calc(100vh - 82px);
+    overflow-y: auto;
+    padding: 12px 20px 20px;
+    background: #fff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+    z-index: 1001;
+  }
+
+  header nav.open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  header nav a {
+    display: block;
+    padding: 15px 8px;
+    color: #075b39;
+    text-decoration: none;
+    border-bottom: 1px solid #e5ebe5;
+  }
+
+  header nav a:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (min-width: 761px) {
+  header nav {
+    display: flex;
+  }
+}
