@@ -1,43 +1,95 @@
-```javascript
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('nav');
 
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const toggle = header?.querySelector('.menu-toggle');
+  const nav = header?.querySelector('nav');
+
+  // MOBILE NAVIGATION
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      toggle.setAttribute(
-        'aria-expanded',
-        nav.classList.contains('open') ? 'true' : 'false'
-      );
-    });
+    function closeMenu() {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    toggle.setAttribute('aria-controls', 'zamson-mobile-navigation');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+    nav.id = 'zamson-mobile-navigation';
+
+    // Prevent duplicate handlers if this script is initialized again.
+    if (toggle.dataset.menuInitialized !== 'true') {
+      toggle.dataset.menuInitialized = 'true';
+
+      toggle.addEventListener('click', event => {
+        event.preventDefault();
+
+        const isOpen = nav.classList.toggle('open');
+
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute(
+          'aria-label',
+          isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+      });
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('click', event => {
+        if (
+          window.innerWidth <= 760 &&
+          nav.classList.contains('open') &&
+          !header.contains(event.target)
+        ) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 760) {
+          closeMenu();
+        }
+      });
+    }
   }
 
+  // HIGHLIGHT THE CURRENT PAGE
   const current = location.pathname.split('/').pop() || 'index.html';
 
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === current) {
-      a.classList.add('active');
+  document.querySelectorAll('nav a').forEach(link => {
+    const href = link.getAttribute('href');
+
+    if (href === current) {
+      link.classList.add('active');
     }
   });
 
+  // ENQUIRY FORM
   const form = document.querySelector('#enquiry-form');
 
   if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
+    form.addEventListener('submit', event => {
+      event.preventDefault();
 
-      const d = new FormData(form);
+      const data = new FormData(form);
 
       const subject = encodeURIComponent(
-        'Website enquiry - ' + d.get('name')
+        'Website enquiry - ' + (data.get('name') || '')
       );
 
       const body = encodeURIComponent(
-        'Name: ' + d.get('name') +
-        '\nEmail: ' + d.get('email') +
-        '\nCompany: ' + (d.get('company') || 'Not provided') +
-        '\n\nMessage:\n' + d.get('message')
+        'Name: ' + (data.get('name') || '') +
+        '\nEmail: ' + (data.get('email') || '') +
+        '\nCompany: ' + (data.get('company') || 'Not provided') +
+        '\n\nMessage:\n' + (data.get('message') || '')
       );
 
       location.href =
@@ -46,48 +98,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-```
-
-
-/* Zamson Group mobile navigation fix */
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  if (!header) return;
-
-  const menuButton = header.querySelector(".menu-toggle");
-  const nav = header.querySelector("nav");
-
-  if (!menuButton || !nav) return;
-
-  function closeMenu() {
-    nav.classList.remove("mobile-nav-open");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation menu");
-  }
-
-  menuButton.setAttribute("aria-controls", "zamson-mobile-navigation");
-  nav.id = "zamson-mobile-navigation";
-
-  menuButton.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const isOpen = nav.classList.toggle("mobile-nav-open");
-
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    menuButton.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-  });
-
-  nav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", closeMenu);
-  });
-
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 760) {
-      closeMenu();
-    }
-  });
-});
-
