@@ -4,77 +4,181 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="description" content="Explore Zamson Oil & Gas, part of Zamson Group, incorporated in 2008 and registered with CAC as RC 739386.">
+  <meta name="description" content="Zamson Oil & Gas — petroleum retail and energy-product activities within Zamson Group. Incorporated in 2008.">
 
   <title>Zamson Oil & Gas | Zamson Group</title>
 
-  <link rel="stylesheet" href="site.css?v=5">
+  <link rel="stylesheet" href="site.css?v=6">
 
   <style>
+    /* Oil & Gas page improvements */
+    .oilgas-hero {
+      position: relative;
+      padding: clamp(45px, 8vw, 100px) clamp(22px, 6vw, 80px);
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(4, 43, 30, .94), rgba(4, 67, 43, .70)),
+        url("filling-station-wide.jpeg") center/cover no-repeat;
+      border-radius: 0;
+    }
+
+    .oilgas-hero .eyebrow {
+      color: #d7ed8b;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .oilgas-hero h1 {
+      color: #fff;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.1;
+      margin: 16px 0;
+    }
+
+    .oilgas-hero p {
+      color: #f3f7f3;
+      max-width: 760px;
+      line-height: 1.8;
+    }
+
     .oilgas-registration {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 10px;
-      margin: 20px 0;
-      color: #ffffff;
+      margin: 8px 0 14px;
+      color: #fff;
       font-size: 14px;
       font-weight: 600;
     }
 
     .oilgas-registration span {
-      display: inline-block;
-    }
-
-    .oilgas-registration .registration-number {
-      padding: 8px 13px;
-      border: 1px solid rgba(255,255,255,.4);
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.35);
       border-radius: 5px;
-      background: rgba(255,255,255,.1);
+      background: rgba(255,255,255,.10);
     }
 
     .oilgas-registration .registration-divider {
-      opacity: .65;
+      padding: 0;
+      border: 0;
+      background: transparent;
     }
 
-    .oilgas-company-details {
-      margin-top: 22px;
-      padding: 20px;
-      border-left: 4px solid #a9d629;
-      border-radius: 5px;
-      background: #f4f7f2;
+    .oilgas-profile {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 40px;
     }
 
-    .oilgas-company-details p {
-      margin: 8px 0;
-    }
-
-    .oilgas-gallery video {
-      display: block;
+    .oilgas-profile-image {
       width: 100%;
-      height: 100%;
-      max-height: 340px;
+      min-height: 300px;
+      max-height: 450px;
       object-fit: cover;
-      border-radius: inherit;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .oilgas-details {
+      margin-top: 24px;
+      padding: 22px;
+      background: #f3f7f1;
+      border-left: 4px solid #a9d629;
+      border-radius: 7px;
+    }
+
+    .oilgas-details h3 {
+      margin-top: 0;
+    }
+
+    .oilgas-details p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .oilgas-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .oilgas-gallery figure {
+      margin: 0;
       overflow: hidden;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
 
-    @media (max-width: 600px) {
-      .oilgas-registration {
-        gap: 8px;
-        font-size: 12px;
+    .oilgas-gallery img {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform .3s ease;
+    }
+
+    .oilgas-gallery figure:hover img {
+      transform: scale(1.04);
+    }
+
+    .oilgas-gallery figcaption {
+      padding: 15px;
+      font-weight: 600;
+    }
+
+    .oilgas-activities .card {
+      height: 100%;
+    }
+
+    .oilgas-contact-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .oilgas-profile {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .oilgas-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .oilgas-gallery img {
+        height: 190px;
       }
 
       .oilgas-registration .registration-divider {
         display: none;
       }
+    }
 
-      .oilgas-registration span {
-        margin-bottom: 3px;
+    @media (max-width: 480px) {
+      .oilgas-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .oilgas-gallery img {
+        height: 230px;
+      }
+
+      .oilgas-hero {
+        min-height: 320px;
       }
     }
   </style>
@@ -84,7 +188,7 @@
 
 <header>
   <a class="brand" href="index.html">
-    <img src="assets/company-logo.jpeg" alt="Zamson Group logo">
+    <img src="company-logo.jpeg" alt="Zamson Group logo">
     <span>ZAMSON GROUP</span>
   </a>
 
@@ -106,17 +210,15 @@
 
 <main>
 
-  <!-- HERO SECTION -->
-  <div class="page-hero subsidiary-hero"
-       style="background-image:linear-gradient(90deg,#063a28ed,#075b3690),url('assets/filling-station-wide.jpeg')">
-
+  <!-- HERO -->
+  <section class="oilgas-hero">
     <div class="eyebrow">Oil, gas & retail distribution</div>
 
     <h1>Zamson Oil & Gas</h1>
 
     <div class="oilgas-registration"
          aria-label="Company registration details">
-      <span class="registration-number">CAC RC 739386</span>
+      <span>CAC RC 739386</span>
       <span class="registration-divider" aria-hidden="true">|</span>
       <span>Incorporated 2008</span>
     </div>
@@ -124,17 +226,17 @@
     <p>Connecting customers with petroleum products.</p>
 
     <p>
-      Zamson Oil & Gas represents the Group’s oil and gas business
+      Zamson Oil & Gas represents the Group's oil and gas business
       activities, including petroleum retail through filling stations
       and the supply of energy products.
     </p>
 
     <a class="btn lime" href="contact.html">Contact the Group</a>
-  </div>
+  </section>
 
   <!-- COMPANY PROFILE -->
   <section>
-    <div class="two-col subsidiary-intro">
+    <div class="two-col subsidiary-intro oilgas-profile">
 
       <div class="copy">
         <div class="kicker">About this business</div>
@@ -148,32 +250,20 @@
         </p>
 
         <p>
-          The company's supplied photographs feature Zamson filling
-          station locations, illustrating its retail presence within
-          the Group.
+          The company's filling station photographs illustrate its
+          retail-facing presence within the Group.
         </p>
 
-        <div class="oilgas-company-details">
-          <h3>Company Registration Details</h3>
+        <div class="oilgas-details">
+          <h3>Company registration details</h3>
 
-          <p>
-            <strong>Registered Name:</strong>
-            Zamson Oil & Gas
-          </p>
-
-          <p>
-            <strong>CAC Registration Number:</strong>
-            RC 739386
-          </p>
-
-          <p>
-            <strong>Year Incorporated:</strong>
-            2008
-          </p>
+          <p><strong>Company:</strong> Zamson Oil & Gas</p>
+          <p><strong>CAC registration number:</strong> RC 739386</p>
+          <p><strong>Year incorporated:</strong> 2008</p>
         </div>
 
         <p>
-          For general enquiries, please use the Zamson Group contact page.
+          For general enquiries, please contact the Zamson Group office.
         </p>
 
         <a class="text-link" href="businesses.html">
@@ -181,19 +271,20 @@
         </a>
       </div>
 
-      <img src="assets/filling-station.jpeg"
-           alt="Zamson Oil & Gas filling station">
+      <img class="oilgas-profile-image"
+           src="filling-station.jpeg"
+           alt="Zamson filling station">
     </div>
   </section>
 
   <!-- BUSINESS ACTIVITIES -->
-  <section class="soft">
+  <section class="soft oilgas-activities">
     <div class="section-head">
       <div class="kicker">Business activities</div>
       <h2>Areas of focus</h2>
       <p>
         An overview of the activities represented by this business
-        within the Group.
+        within Zamson Group.
       </p>
     </div>
 
@@ -201,19 +292,19 @@
 
       <article class="card">
         <div class="card-body">
-          <div class="kicker">What we do</div>
-          <h3>Petroleum Retail</h3>
+          <div class="kicker">01 / Retail</div>
+          <h3>Petroleum retail</h3>
           <p>
-            Filling station operations are part of the Group’s oil and
-            gas activities.
+            Filling station operations form part of the Group's
+            oil and gas activities.
           </p>
         </div>
       </article>
 
       <article class="card">
         <div class="card-body">
-          <div class="kicker">What we do</div>
-          <h3>Energy-Product Supply</h3>
+          <div class="kicker">02 / Supply</div>
+          <h3>Energy-product supply</h3>
           <p>
             The business is associated with the supply of petroleum
             and energy products.
@@ -223,10 +314,11 @@
 
       <article class="card">
         <div class="card-body">
-          <div class="kicker">What we do</div>
-          <h3>Customer Access</h3>
+          <div class="kicker">03 / Customers</div>
+          <h3>Customer access</h3>
           <p>
-            Retail locations provide a direct point of access for customers.
+            Retail locations provide customers with a direct point
+            of access to petroleum products.
           </p>
         </div>
       </article>
@@ -234,42 +326,46 @@
     </div>
   </section>
 
-  <!-- COMPANY GALLERY -->
+  <!-- GALLERY -->
   <section>
     <div class="section-head">
       <div class="kicker">Company gallery</div>
       <h2>A look at our operations</h2>
       <p>
-        Photographs supplied for the Zamson Group website.
+        Photographs of Zamson Group's filling station and petroleum
+        infrastructure.
       </p>
     </div>
 
-    <div class="gallery oilgas-gallery">
+    <div class="oilgas-gallery">
 
       <figure>
-        <img src="assets/filling-station.jpeg"
-             alt="Zamson filling station">
+        <img src="filling-station.jpeg"
+             alt="Zamson filling station"
+             loading="lazy">
         <figcaption>Zamson filling station</figcaption>
       </figure>
 
       <figure>
-        <img src="assets/filling-station-wide.jpeg"
-             alt="Filling station and office complex">
+        <img src="filling-station-wide.jpeg"
+             alt="Filling station and office complex"
+             loading="lazy">
         <figcaption>Filling station and office complex</figcaption>
       </figure>
 
       <figure>
-        <img src="assets/depot-loading.jpeg"
-             alt="Petroleum loading infrastructure">
+        <img src="depot-loading.jpeg"
+             alt="Petroleum loading infrastructure"
+             loading="lazy">
         <figcaption>Petroleum loading infrastructure</figcaption>
       </figure>
 
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section class="subsidiary-contact">
-    <div class="cta">
+    <div class="cta oilgas-contact-inner">
 
       <div>
         <div class="eyebrow">Shared Group contacts</div>
@@ -277,8 +373,8 @@
         <h2>Connect with Zamson Oil & Gas</h2>
 
         <p>
-          All subsidiary companies use the Zamson Group contact offices
-          and telephone lines.
+          Zamson Group's shared contact offices and telephone lines
+          serve its subsidiary businesses.
         </p>
 
         <p>
