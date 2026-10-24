@@ -1560,3 +1560,89 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     background-position: center;
   }
 }
+
+
+
+/* Zamson Transport video gallery */
+.transport-video-section {
+  padding: 75px 6%;
+  background: #f2f7f3;
+}
+
+.transport-video-section .section-head {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.transport-video-section .kicker {
+  color: #087044;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.transport-video-section .section-head h2 {
+  color: #063f2c;
+  margin: 12px 0;
+}
+
+.transport-video-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.transport-video-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d8e7dc;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(5, 60, 38, .09);
+}
+
+.transport-video-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  border-bottom: 3px solid #b5e936;
+}
+
+.transport-video-heading span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #075b36;
+  color: #fff;
+  font-weight: 800;
+}
+
+.transport-video-heading h3 {
+  margin: 0;
+  color: #06442f;
+}
+
+.transport-video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #071b13;
+}
+
+@media (max-width: 750px) {
+  .transport-video-section {
+    padding: 48px 5%;
+  }
+
+  .transport-video-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
