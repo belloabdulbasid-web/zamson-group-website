@@ -1648,67 +1648,88 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
 }
 
 
-/* Zamson Transport: bring videos and truck photos closer together */
-.transport-gallery-section {
-  padding-top: 35px;
-  padding-bottom: 45px;
+/* Zamson Transport: compact truck photo and video galleries */
+
+.transport-page .transport-gallery-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #f2f7f3;
 }
 
-.transport-gallery-section .section-head {
+.transport-page .transport-gallery-section .section-head,
+.transport-page .transport-video-section .section-head {
   margin-bottom: 20px;
 }
 
-.transport-gallery,
-.transport-video-grid {
+.transport-page .transport-gallery,
+.transport-page .transport-video-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   align-items: stretch;
 }
 
-.transport-gallery figure {
+.transport-page .transport-gallery figure,
+.transport-page .transport-video-card {
+  min-width: 0;
   margin: 0;
   overflow: hidden;
+  border: 1px solid #d8e7dc;
   border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(5, 60, 38, 0.08);
 }
 
-.transport-gallery img {
+.transport-page .transport-gallery img {
   display: block;
   width: 100%;
-  height: 250px;
+  height: 230px;
   object-fit: cover;
 }
 
-.transport-video-grid video {
-  display: block;
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  background: #102e23;
+.transport-page .transport-gallery figcaption {
+  padding: 10px 14px;
+  color: #064b35;
+  font-weight: 700;
 }
 
-.transport-gallery figcaption {
-  padding: 10px 0;
-  font-weight: 600;
+.transport-page .transport-video-section {
+  padding: 30px 6%;
+  background: #f2f7f3;
+}
+
+.transport-page .transport-video-heading {
+  padding: 12px 16px;
+}
+
+.transport-page .transport-video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+  background: #071b13;
 }
 
 @media (max-width: 800px) {
-  .transport-gallery,
-  .transport-video-grid {
+  .transport-page .transport-gallery,
+  .transport-page .transport-video-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 }
 
 @media (max-width: 520px) {
-  .transport-gallery,
-  .transport-video-grid {
+  .transport-page .transport-gallery,
+  .transport-page .transport-video-grid {
     grid-template-columns: 1fr;
   }
 
-  .transport-gallery img,
-  .transport-video-grid video {
+  .transport-page .transport-gallery img {
     height: 230px;
   }
 }
+
