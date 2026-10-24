@@ -1733,3 +1733,35 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
   }
 }
 
+
+/* Zamson Transport: reduce spacing around fleet media */
+.transport-page .transport-video-section {
+  padding-bottom: 20px !important;
+  margin-bottom: 0 !important;
+}
+
+.transport-page .transport-gallery-section {
+  padding-top: 20px !important;
+  margin-top: 0 !important;
+}
+
+.transport-page .transport-video-grid,
+.transport-page .transport-gallery {
+  gap: 18px !important;
+}
+
+.transport-page .transport-video-card video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .transport-page .transport-video-grid,
+  .transport-page .transport-gallery {
+    grid-template-columns: 1fr !important;
+  }
+}
