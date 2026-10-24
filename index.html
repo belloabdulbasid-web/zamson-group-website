@@ -4,299 +4,877 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Zamson Group - energy, petroleum storage, retail distribution and logistics in Nigeria.">
-  <title>Home | Zamson Group</title>
-  <link rel="stylesheet" href="site.css">
+
+  <meta name="description" content="Discover Zamson Group, a Nigerian business group operating across petroleum storage, retail distribution, energy and transport logistics.">
+  <meta name="theme-color" content="#063e29">
+
+  <title>Zamson Group | Energy, Distribution &amp; Logistics</title>
+
+  <link rel="stylesheet" href="site.css?v=9">
 
   <style>
-    /* Homepage welcome video — keep the existing green branding */
-    .hero.hero-video {
+    :root {
+      --home-green: #063e29;
+      --home-green-light: #0b6843;
+      --home-lime: #c6e68b;
+      --home-gold: #b69a53;
+      --home-cream: #f5f7f2;
+      --home-text: #203b2d;
+      --home-muted: #657368;
+    }
+
+    body {
+      color: var(--home-text);
+    }
+
+    /* HERO */
+    .home-hero {
       position: relative;
       isolation: isolate;
+      display: flex;
+      align-items: center;
+      min-height: 590px;
       overflow: hidden;
-      background: #064b35;
+      background: var(--home-green);
+      color: #fff;
     }
 
-    .hero-video .hero-background-video {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero.hero-video::before {
+    .home-hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 0;
+      z-index: -1;
       background: linear-gradient(
         90deg,
-        rgba(0, 55, 39, 0.85),
-        rgba(0, 55, 39, 0.45)
+        rgba(2, 37, 25, .94) 0%,
+        rgba(3, 57, 38, .78) 48%,
+        rgba(3, 57, 38, .32) 100%
       );
-      pointer-events: none;
     }
 
-    .hero-video .hero-inner {
+    .home-hero video {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .home-hero-content {
+      width: 100%;
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 100px 6%;
+    }
+
+    .home-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: var(--home-lime);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .home-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--home-lime);
+    }
+
+    .home-hero h1 {
+      max-width: 780px;
+      margin: 0 0 22px;
+      color: #fff;
+      font-size: clamp(42px, 6.2vw, 76px);
+      line-height: 1.06;
+      letter-spacing: -1.7px;
+    }
+
+    .home-hero h1 span {
+      color: var(--home-lime);
+    }
+
+    .home-hero-content > p {
+      max-width: 650px;
+      margin: 0 0 30px;
+      color: #edf5ef;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .home-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .home-actions .btn {
+      padding: 15px 23px;
+      border-radius: 5px;
+    }
+
+    .home-actions .btn.home-outline {
+      border: 1px solid rgba(255,255,255,.7);
+      background: rgba(255,255,255,.06);
+      color: white;
+    }
+
+    .home-actions .btn.home-outline:hover {
+      background: white;
+      color: var(--home-green);
+    }
+
+    /* CAPABILITIES STRIP */
+    .home-capabilities {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      background: var(--home-green);
+      color: white;
+      padding: 0 max(5%, calc((100% - 1250px) / 2));
+    }
+
+    .home-capability {
+      min-height: 115px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px;
+      border-right: 1px solid rgba(255,255,255,.14);
+    }
+
+    .home-capability:first-child {
+      border-left: 1px solid rgba(255,255,255,.14);
+    }
+
+    .home-capability strong {
+      color: var(--home-lime);
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .home-capability span {
+      color: #e0eae3;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* SHARED SECTION STYLING */
+    .home-section {
+      padding: 85px 6%;
+    }
+
+    .home-container {
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    .home-section-heading {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .home-kicker {
+      color: #947a36;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .home-section-heading h2,
+    .home-intro-copy h2,
+    .home-project-copy h2,
+    .home-film-copy h2 {
+      margin: 12px 0 16px;
+      color: var(--home-green);
+      font-size: clamp(29px, 3.5vw, 43px);
+      line-height: 1.18;
+    }
+
+    .home-section-heading p,
+    .home-intro-copy p,
+    .home-project-copy p,
+    .home-film-copy p {
+      color: var(--home-muted);
+      line-height: 1.85;
+    }
+
+    /* INTRODUCTION */
+    .home-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(30px, 6vw, 75px);
+      align-items: center;
+    }
+
+    .home-intro-image {
       position: relative;
-      z-index: 1;
+      padding: 0 0 15px 15px;
+    }
+
+    .home-intro-image::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 65%;
+      height: 65%;
+      background: #dce9c9;
+      border-radius: 10px;
+    }
+
+    .home-intro-image img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 16px 36px rgba(0,40,24,.12);
+    }
+
+    .home-intro-copy .btn {
+      margin-top: 12px;
+    }
+
+    /* BUSINESS CARDS */
+    .home-business-section {
+      background: var(--home-cream);
+    }
+
+    .home-business-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .home-business-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #e1e8de;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 7px 24px rgba(14,54,32,.045);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .home-business-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 32px rgba(14,54,32,.11);
+    }
+
+    .home-business-card img {
+      display: block;
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      background: #e7ede6;
+    }
+
+    .home-business-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 25px;
+    }
+
+    .home-business-body .number {
+      color: #9b8447;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .home-business-body h3 {
+      margin: 12px 0 10px;
+      color: var(--home-green);
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    .home-business-body p {
+      margin: 0 0 18px;
+      color: var(--home-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .home-business-body a {
+      margin-top: auto;
+      color: var(--home-green);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .home-business-body a:hover {
+      color: #947a36;
+    }
+
+    /* PROJECT */
+    .home-project-panel {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(30px, 5vw, 65px);
+      align-items: center;
+      padding: 30px;
+      border: 1px solid #e4e9e0;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 12px 35px rgba(0,40,24,.055);
+    }
+
+    .home-project-panel > img {
+      display: block;
+      width: 100%;
+      min-height: 330px;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #e7ede6;
+    }
+
+    .home-project-copy h2 {
+      font-size: clamp(28px, 3.2vw, 38px);
+    }
+
+    .home-project-copy .status-pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid #d9e7c5;
+      border-radius: 30px;
+      background: #eff6e7;
+      color: #315b2b;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .home-project-copy .btn {
+      margin-top: 12px;
+    }
+
+    /* NEWS */
+    .home-news-section {
+      background: #f7f8f5;
+    }
+
+    .home-news-section [data-cms-news] {
+      min-height: 90px;
+    }
+
+    /* VIDEO PANEL */
+    .home-film {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: clamp(30px, 5vw, 65px);
+      align-items: center;
+    }
+
+    .home-film video {
+      display: block;
+      width: 100%;
+      max-height: 420px;
+      border-radius: 10px;
+      background: #062f21;
+      box-shadow: 0 12px 32px rgba(0,40,24,.12);
+    }
+
+    /* FINAL CALL TO ACTION */
+    .home-final-cta {
+      padding: 65px 6%;
+      background: linear-gradient(120deg, #063e29, #0b6843);
+      color: white;
+    }
+
+    .home-final-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    .home-final-cta h2 {
+      margin: 12px 0;
+      color: white;
+      font-size: clamp(29px, 3.5vw, 42px);
+    }
+
+    .home-final-cta p {
+      max-width: 670px;
+      margin-bottom: 0;
+      color: #e0ece4;
+      line-height: 1.8;
+    }
+
+    .home-final-cta .btn {
+      flex-shrink: 0;
+      background: var(--home-lime);
+      color: #173b2c;
+    }
+
+    /* RESPONSIVE LAYOUT */
+    @media (max-width: 900px) {
+      .home-hero {
+        min-height: 540px;
+      }
+
+      .home-capability {
+        padding: 20px 15px;
+      }
+
+      .home-business-grid {
+        gap: 17px;
+      }
+
+      .home-business-body {
+        padding: 20px;
+      }
+
+      .home-business-card img {
+        height: 210px;
+      }
+
+      .home-project-panel {
+        gap: 28px;
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .home-hero {
+        min-height: 540px;
+      }
+
+      .home-hero-content {
+        padding: 75px 7%;
+      }
+
+      .home-hero h1 {
+        letter-spacing: -.7px;
+      }
+
+      .home-hero-content > p {
+        font-size: 16px;
+      }
+
+      .home-capabilities {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 5%;
+      }
+
+      .home-capability {
+        min-height: 100px;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+      }
+
+      .home-capability:nth-child(odd) {
+        border-left: 1px solid rgba(255,255,255,.14);
+      }
+
+      .home-section {
+        padding: 58px 6%;
+      }
+
+      .home-intro,
+      .home-film,
+      .home-project-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .home-intro-image img {
+        height: 300px;
+      }
+
+      .home-business-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .home-business-card img {
+        height: 245px;
+      }
+
+      .home-project-panel {
+        padding: 18px;
+      }
+
+      .home-project-panel > img {
+        min-height: 230px;
+        max-height: 300px;
+      }
+
+      .home-final-cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .home-business-card {
+        transition: none;
+      }
+
+      .home-business-card:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <a class="brand" href="index.html">
-      <img src="company-logo.jpeg" alt="Zamson Group logo">
-      <span>ZAMSON GROUP</span>
-    </a>
 
-    <button class="menu-toggle"
-      aria-label="Toggle navigation"
-      aria-expanded="false">☰</button>
+<header>
+  <a class="brand" href="index.html">
+    <img src="company-logo.jpeg" alt="Zamson Group logo">
+    <span>ZAMSON GROUP</span>
+  </a>
 
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="businesses.html">Businesses</a>
-      <a href="operations.html">Operations</a>
-      <a href="projects.html">Projects</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <button class="menu-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false">☰</button>
 
-    <a class="btn header-cta" href="contact.html">Contact Us</a>
-  </header>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="businesses.html">Businesses</a>
+    <a href="operations.html">Operations</a>
+    <a href="projects.html">Projects</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <main>
-    <!-- Hero -->
-    <div class="hero hero-video">
-      <video
-        class="hero-background-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="depot-exterior.jpeg"
-        aria-hidden="true">
-        <source src="head-office-video.mp4" type="video/mp4">
-      </video>
+  <a class="btn header-cta" href="contact.html">Contact Us</a>
+</header>
 
-      <div class="hero-inner">
-        <div class="eyebrow">Welcome to Zamson Group</div>
-        <h1>Building value.<br>Moving industries.</h1>
-        <p>
-          A diversified Nigerian group with capabilities across energy,
-          petroleum storage, retail distribution and logistics.
-        </p>
+<main>
+
+  <!-- HERO -->
+  <section class="home-hero">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="depot-exterior.jpeg"
+      aria-hidden="true">
+      <source src="head-office-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="home-hero-content">
+      <div class="home-eyebrow">Welcome to Zamson Group</div>
+
+      <h1>
+        Building value.<br>
+        <span>Moving industries.</span>
+      </h1>
+
+      <p>
+        A Nigerian business group bringing together petroleum storage,
+        retail distribution, energy-related operations and transport
+        logistics to serve customers and support business growth.
+      </p>
+
+      <div class="home-actions">
         <a class="btn lime" href="about.html">Discover Zamson</a>
-        <a class="btn outline" href="businesses.html">Our businesses</a>
+        <a class="btn home-outline" href="businesses.html">
+          Explore Our Businesses
+        </a>
       </div>
     </div>
+  </section>
 
-    <!-- Group capabilities -->
-    <div class="strip">
-      <div class="metric">
-        <strong>Energy</strong>
-        <span>Storage and distribution</span>
-      </div>
-      <div class="metric">
-        <strong>Retail</strong>
-        <span>Filling station operations</span>
-      </div>
-      <div class="metric">
-        <strong>Logistics</strong>
-        <span>Fleet and haulage operations</span>
-      </div>
-      <div class="metric">
-        <strong>Infrastructure</strong>
-        <span>Facilities and operations</span>
-      </div>
+  <!-- GROUP CAPABILITIES -->
+  <div class="home-capabilities">
+    <div class="home-capability">
+      <strong>Energy</strong>
+      <span>Storage and distribution</span>
     </div>
 
-    <!-- About Zamson -->
-    <section>
-      <div class="two-col">
-        <div class="copy">
-          <div class="kicker">Who we are</div>
-          <h2>Built on service. Driven by progress.</h2>
-          <p>
-            Zamson Group brings together businesses and capabilities
-            supporting the energy and logistics value chain. Our facilities,
-            people and transport operations are focused on dependable service
-            and long-term relationships.
-          </p>
-          <a class="btn" href="about.html">Learn about us</a>
-        </div>
-        <img src="depot-exterior.jpeg"
-          alt="Zamson depot exterior"
+    <div class="home-capability">
+      <strong>Retail</strong>
+      <span>Filling station operations</span>
+    </div>
+
+    <div class="home-capability">
+      <strong>Logistics</strong>
+      <span>Fleet and haulage operations</span>
+    </div>
+
+    <div class="home-capability">
+      <strong>Infrastructure</strong>
+      <span>Facilities and operations</span>
+    </div>
+  </div>
+
+  <!-- ABOUT ZAMSON -->
+  <section class="home-section">
+    <div class="home-container home-intro">
+      <div class="home-intro-copy">
+        <div class="home-kicker">Who We Are</div>
+
+        <h2>Built on service. Driven by progress.</h2>
+
+        <p>
+          Zamson Group brings together businesses and capabilities
+          supporting the energy and logistics value chain. Our facilities,
+          people and transport operations focus on dependable service,
+          effective coordination and long-term business relationships.
+        </p>
+
+        <p>
+          Through our operating divisions, we work to connect facilities,
+          products and transportation services to meet the needs of
+          customers and business partners.
+        </p>
+
+        <a class="btn" href="about.html">Learn About Zamson</a>
+      </div>
+
+      <div class="home-intro-image">
+        <img
+          src="depot-exterior.jpeg"
+          alt="Exterior view of Zamson Group's depot"
           loading="lazy">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Businesses -->
-    <section class="soft">
-      <div class="section-head">
-        <div class="kicker">Our businesses</div>
-        <h2>Connected capabilities across the value chain</h2>
-        <p>Explore the operating areas represented across Zamson Group.</p>
+  <!-- BUSINESSES -->
+  <section class="home-section home-business-section">
+    <div class="home-container">
+      <div class="home-section-heading">
+        <div class="home-kicker">Our Businesses</div>
+
+        <h2>Connected capabilities across our businesses</h2>
+
+        <p>
+          Explore the companies and operating areas that make up Zamson
+          Group and learn more about their roles.
+        </p>
       </div>
 
-      <div class="cards">
-        <article class="card">
-          <img src="filling-station.jpeg"
+      <div class="home-business-grid">
+
+        <article class="home-business-card">
+          <img
+            src="filling-station.jpeg"
             alt="Zamson filling station"
             loading="lazy">
-          <div class="card-body">
-            <h3>Petroleum Retail</h3>
-            <p>Retail fuel facilities serving customers and communities.</p>
-            <a href="businesses.html">Explore businesses →</a>
-          </div>
-        </article>
 
-        <article class="card">
-          <img src="depot-loading.jpeg"
-            alt="Petroleum loading gantry"
-            loading="lazy">
-          <div class="card-body">
-            <h3>Storage &amp; Distribution</h3>
+          <div class="home-business-body">
+            <div class="number">01 / RETAIL &amp; RESOURCES</div>
+
+            <h3>Zamson Global Resources</h3>
+
             <p>
-              Depot infrastructure supporting petroleum storage and
-              product movement.
+              Discover our resources business and its role within the
+              wider Zamson Group.
             </p>
-            <a href="businesses.html">Explore businesses →</a>
+
+            <a href="businesses.html">Explore the business &rarr;</a>
           </div>
         </article>
 
-        <article class="card">
-          <img src="trucks-lineup.jpeg"
-            alt="Zamson truck fleet"
+        <article class="home-business-card">
+          <img
+            src="depot-loading.jpeg"
+            alt="Petroleum product loading operations at a depot"
             loading="lazy">
-          <div class="card-body">
-            <h3>Transport &amp; Logistics</h3>
-            <p>Fleet operations supporting the movement of products and goods.</p>
-            <a href="businesses.html">Explore businesses →</a>
+
+          <div class="home-business-body">
+            <div class="number">02 / PETROLEUM</div>
+
+            <h3>Zamson Oil &amp; Gas</h3>
+
+            <p>
+              Learn about our petroleum-related facilities, storage,
+              distribution and operating capabilities.
+            </p>
+
+            <a href="businesses.html">Explore the business &rarr;</a>
           </div>
         </article>
+
+        <article class="home-business-card">
+          <img
+            src="trucks-lineup.jpeg"
+            alt="Zamson transport trucks lined up at a depot"
+            loading="lazy">
+
+          <div class="home-business-body">
+            <div class="number">03 / TRANSPORT &amp; LOGISTICS</div>
+
+            <h3>Zamson Transport Limited</h3>
+
+            <p>
+              Explore our transport and haulage activities supporting
+              the movement of products and goods.
+            </p>
+
+            <a href="businesses.html">Explore the business &rarr;</a>
+          </div>
+        </article>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Upcoming project -->
-    <section class="soft" data-cms-project-teaser>
-      <div class="two-col project-teaser">
-        <img src="Proj2.jpeg"
-          alt="Zamson depot extension project"
-          loading="lazy">
+  <!-- DEPOT EXTENSION PROJECT -->
+  <section class="home-section" data-cms-project-teaser>
+    <div class="home-container home-project-panel">
+      <img
+        src="Proj2.jpeg"
+        alt="Planned Zamson depot extension project"
+        loading="lazy">
 
-        <div class="copy">
-          <div class="kicker">Upcoming project</div>
-          <h2>Depot Extension Project</h2>
-          <p>
-            Zamson Group is planning an extension of its depot facilities
-            to strengthen storage capacity, improve operational efficiency,
-            and support growing demand for petroleum products.
-          </p>
-          <p>
-            <strong>Project Location:</strong>
-            15 km Koko Expressway, Obitugbo, near Koko, Warri North
-            Local Government Area, Delta State, Nigeria.
-          </p>
-          <span class="status-pill">Upcoming</span>
-          <p>
-            <a class="btn" href="projects.html">View Project Details</a>
-          </p>
-        </div>
+      <div class="home-project-copy">
+        <div class="home-kicker">Featured Project</div>
+
+        <h2>Depot Extension Project</h2>
+
+        <p>
+          Zamson Group is planning an extension of its depot facilities
+          to strengthen storage capacity, improve operational efficiency
+          and support future business needs.
+        </p>
+
+        <p>
+          <strong>Location:</strong><br>
+          15 km Koko Expressway, Obitugbo, near Koko, Warri North
+          Local Government Area, Delta State, Nigeria.
+        </p>
+
+        <span class="status-pill">Upcoming</span>
+
+        <p>
+          <a class="btn" href="projects.html">View Project Details</a>
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Latest news -->
-    <section>
-      <div class="section-head">
-        <div class="kicker">Latest updates</div>
-        <h2>News &amp; announcements</h2>
-        <p>Updates and announcements from Zamson Group.</p>
+  <!-- NEWS AND ANNOUNCEMENTS -->
+  <section class="home-section home-news-section">
+    <div class="home-container">
+      <div class="home-section-heading">
+        <div class="home-kicker">Latest Updates</div>
+
+        <h2>News &amp; Announcements</h2>
+
+        <p>
+          Company updates, announcements and news from Zamson Group.
+        </p>
       </div>
 
       <div class="cards" data-cms-news aria-live="polite">
         <p class="muted">Loading latest updates…</p>
       </div>
 
-      <p><a class="btn" href="news.html">View all news</a></p>
-    </section>
+      <p>
+        <a class="btn" href="news.html">View All News</a>
+      </p>
+    </div>
+  </section>
 
-    <!-- Facilities video -->
-    <section>
-      <div class="video-panel">
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          poster="depot-exterior.jpeg">
-          <source src="head-office-video.mp4" type="video/mp4">
-          Your browser does not support video.
-        </video>
+  <!-- COMPANY VIDEO -->
+  <section class="home-section">
+    <div class="home-container home-film">
+      <video
+        controls
+        playsinline
+        preload="metadata"
+        poster="depot-exterior.jpeg">
+        <source src="head-office-video.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
 
-        <div>
-          <div class="kicker">Our facilities</div>
-          <h2>See Zamson in operation</h2>
-          <p class="copy">
-            A glimpse of our head office and operating environment.
-          </p>
-          <a class="btn" href="operations.html">Explore operations</a>
-        </div>
+      <div class="home-film-copy">
+        <div class="home-kicker">Our Facilities</div>
+
+        <h2>See Zamson in operation</h2>
+
+        <p>
+          Take a closer look at our facilities and operating environment.
+          Our depot, retail and transport activities form part of the
+          capabilities we bring together across the Group.
+        </p>
+
+        <a class="btn" href="operations.html">Explore Our Operations</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact callout -->
-    <div class="cta">
+  <!-- CONTACT CALL TO ACTION -->
+  <section class="home-final-cta">
+    <div class="home-final-cta-inner">
       <div>
-        <div class="eyebrow">Connect with Zamson</div>
+        <div class="home-eyebrow">Connect With Zamson</div>
+
         <h2>Let's build the future together.</h2>
-        <p>
-          For business enquiries, partnerships and general information,
-          contact our team.
-        </p>
-      </div>
-      <a class="btn lime" href="contact.html">Contact us</a>
-    </div>
-  </main>
 
-  <footer>
-    <div class="foot">
-      <div>
-        <h3>ZAMSON GROUP</h3>
         <p>
-          Energy, infrastructure and logistics capabilities supporting
-          business and communities.
+          Contact our team for business enquiries, partnerships,
+          company information and general enquiries.
         </p>
       </div>
 
-      <div>
-        <h3>Explore</h3>
-        <a href="about.html">About Us</a>
-        <a href="businesses.html">Our Businesses</a>
-        <a href="operations.html">Operations</a>
-      </div>
+      <a class="btn" href="contact.html">Contact Our Team</a>
+    </div>
+  </section>
 
-      <div>
-        <h3>Connect</h3>
-        <a href="leadership.html">Leadership</a>
-        <a href="contact.html">Contact</a>
-      </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <h3>ZAMSON GROUP</h3>
+
+      <p>
+        Energy, infrastructure and logistics capabilities supporting
+        business and communities.
+      </p>
     </div>
 
-    <div class="copyright">
-      © Zamson Group. Company profile information and official contact
-      details should be confirmed before publication.
+    <div>
+      <h3>Explore</h3>
+      <a href="about.html">About Us</a>
+      <a href="businesses.html">Our Businesses</a>
+      <a href="operations.html">Operations</a>
+      <a href="projects.html">Projects</a>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js"></script>
-  <script src="js/site.js"></script>
-  <script src="js/public-content.js"></script>
+    <div>
+      <h3>Connect</h3>
+      <a href="leadership.html">Leadership</a>
+      <a href="news.html">News &amp; Announcements</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    &copy; Zamson Group. All rights reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/site.js"></script>
+<script src="js/public-content.js"></script>
+
 </body>
 </html>
