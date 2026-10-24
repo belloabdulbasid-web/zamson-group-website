@@ -1765,3 +1765,152 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ZAMSON GROUP — MOBILE IMPROVEMENTS */
+
+@media (max-width: 760px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    position: relative;
+    z-index: 1000;
+    min-height: 82px;
+    padding: 12px 18px;
+    gap: 12px;
+  }
+
+  header .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  header .brand img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  header .brand span {
+    font-size: clamp(15px, 4vw, 21px);
+    line-height: 1.2;
+  }
+
+  header .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #075b39;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    z-index: 1002;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  header .header-cta {
+    display: none;
+  }
+
+  /* Hero sections across the website */
+  .hero,
+  .page-hero,
+  .business-hero,
+  .home-hero {
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-content,
+  .page-hero-content,
+  .business-hero-content,
+  .home-hero-content {
+    padding: 56px 22px;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  .business-hero h1,
+  .home-hero h1 {
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.6px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero p,
+  .page-hero p,
+  .business-hero p,
+  .home-hero-content > p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 18px;
+  }
+
+  .hero .btn,
+  .page-hero .btn,
+  .business-hero .btn,
+  .home-actions .btn {
+    min-height: 48px;
+    padding: 13px 19px;
+    font-size: 15px;
+  }
+
+  /* Reduce oversized sections and improve readability */
+  section {
+    scroll-margin-top: 90px;
+  }
+
+  .home-section,
+  .leadership-section {
+    padding: 45px 20px;
+  }
+
+  .home-intro,
+  .home-film,
+  .home-project-panel,
+  .chairman-profile {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-business-grid,
+  .executive-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-business-card img,
+  .executive-card img {
+    max-height: 320px;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+  /* Keep contact actions usable on small screens */
+  .home-final-cta-inner,
+  .leadership-contact-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
