@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Zamson Transport Limited provides transportation, haulage and logistics services in Nigeria.">
+  <meta name="description" content="Zamson Transport Limited, incorporated in 2008, provides transportation, haulage and logistics services in Nigeria.">
   <title>Zamson Transport Limited | Zamson Group</title>
-  <link rel="stylesheet" href="site.css?v=3">
+  <link rel="stylesheet" href="site.css?v=4">
 
   <style>
     /* Combined Zamson fleet media gallery */
@@ -60,6 +60,34 @@
       letter-spacing: 1px;
     }
 
+    /* CAC registration details */
+    .transport-registration {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 18px;
+      color: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+
+    .transport-registration .registration-number {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid currentColor;
+      border-radius: 5px;
+    }
+
+    .transport-registration .registration-year {
+      opacity: 0.9;
+    }
+
+    .transport-registration .registration-divider {
+      opacity: 0.55;
+    }
+
     .transport-profile {
       margin-top: 0 !important;
     }
@@ -84,6 +112,11 @@
       .transport-media-card img {
         height: auto;
         aspect-ratio: 16 / 9;
+      }
+
+      .transport-registration {
+        font-size: 12px;
+        gap: 7px;
       }
     }
   </style>
@@ -118,14 +151,26 @@
   <section class="transport-hero">
     <div class="transport-hero-content">
       <div class="kicker">TRANSPORT · HAULAGE · DISTRIBUTION</div>
+
       <h1>Zamson Transport Limited</h1>
+
+      <!-- OFFICIAL COMPANY REGISTRATION DETAILS -->
+      <div class="transport-registration"
+           aria-label="Company registration details">
+        <span class="registration-number">CAC RC 73970</span>
+        <span class="registration-divider" aria-hidden="true">|</span>
+        <span class="registration-year">Incorporated 2008</span>
+      </div>
+
       <h3>Moving products safely, efficiently and reliably.</h3>
+
       <p>
         Zamson Transport Limited is a privately owned Nigerian
         transportation and logistics company providing haulage services
         through its fleet of trucks and tanker vehicles. We focus on
         safety, dependable service and efficient movement of goods.
       </p>
+
       <a class="btn lime" href="contact.html">Contact the Group →</a>
     </div>
   </section>
@@ -211,6 +256,11 @@
         Through staff training, vehicle maintenance, effective supervision
         and teamwork, Zamson Transport is committed to dependable
         operations and continuous improvement.
+      </p>
+
+      <p>
+        <strong>CAC Registration Number:</strong> RC 73970<br>
+        <strong>Year Incorporated:</strong> 2008
       </p>
     </div>
 
