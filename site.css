@@ -1646,3 +1646,69 @@ footer{background:#082e20;color:#d9e8de;padding:42px 7% 22px}.foot{display:grid;
     gap: 22px;
   }
 }
+
+
+/* Zamson Transport: bring videos and truck photos closer together */
+.transport-gallery-section {
+  padding-top: 35px;
+  padding-bottom: 45px;
+}
+
+.transport-gallery-section .section-head {
+  margin-bottom: 20px;
+}
+
+.transport-gallery,
+.transport-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.transport-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.transport-gallery img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.transport-video-grid video {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #102e23;
+}
+
+.transport-gallery figcaption {
+  padding: 10px 0;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .transport-gallery,
+  .transport-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .transport-gallery,
+  .transport-video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transport-gallery img,
+  .transport-video-grid video {
+    height: 230px;
+  }
+}
