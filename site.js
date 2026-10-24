@@ -1,74 +1,76 @@
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   const header = document.querySelector('header');
-  const toggle = header?.querySelector('.menu-toggle');
-  const nav = header?.querySelector('nav');
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = header ? header.querySelector('nav') : null;
 
   // MOBILE NAVIGATION
-  if (toggle && nav) {
-    function closeMenu() {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Open navigation menu');
-    }
-
-    toggle.setAttribute('aria-controls', 'zamson-mobile-navigation');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open navigation menu');
+  if (header && menuButton && nav) {
     nav.id = 'zamson-mobile-navigation';
+    menuButton.type = 'button';
+    menuButton.setAttribute('aria-controls', nav.id);
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open navigation menu');
 
-    // Prevent duplicate handlers if this script is initialized again.
-    if (toggle.dataset.menuInitialized !== 'true') {
-      toggle.dataset.menuInitialized = 'true';
-
-      toggle.addEventListener('click', event => {
-        event.preventDefault();
-
-        const isOpen = nav.classList.toggle('open');
-
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.setAttribute(
-          'aria-label',
-          isOpen ? 'Close navigation menu' : 'Open navigation menu'
-        );
-      });
-
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('click', event => {
-        if (
-          window.innerWidth <= 760 &&
-          nav.classList.contains('open') &&
-          !header.contains(event.target)
-        ) {
-          closeMenu();
-        }
-      });
-
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') {
-          closeMenu();
-        }
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 760) {
-          closeMenu();
-        }
-      });
+    function setMenuOpen(open) {
+      nav.classList.toggle('open', open);
+      nav.classList.remove('mobile-nav-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute(
+        'aria-label',
+        open ? 'Close navigation menu' : 'Open navigation menu'
+      );
     }
+
+    menuButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const isOpen = nav.classList.contains('open');
+      setMenuOpen(!isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setMenuOpen(false);
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (
+        window.innerWidth <= 760 &&
+        nav.classList.contains('open') &&
+        !header.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 760) {
+        setMenuOpen(false);
+      }
+    });
+  } else {
+    console.warn('Zamson navigation: menu button or nav element not found.');
   }
 
-  // HIGHLIGHT THE CURRENT PAGE
-  const current = location.pathname.split('/').pop() || 'index.html';
+  // HIGHLIGHT CURRENT PAGE
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
 
-  document.querySelectorAll('nav a').forEach(link => {
-    const href = link.getAttribute('href');
+  document.querySelectorAll('header nav a').forEach(function (link) {
+    const linkPage = link.getAttribute('href');
 
-    if (href === current) {
+    if (linkPage === currentPage) {
       link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
 
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#enquiry-form');
 
   if (form) {
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', function (event) {
       event.preventDefault();
 
       const data = new FormData(form);
