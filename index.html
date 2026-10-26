@@ -14,184 +14,6 @@
   <link rel="stylesheet" href="site.css?v=10">
 
   <style>
-    /* ZAMSON PREMIUM HOMEPAGE REFINEMENTS */
-:root {
-  --zg-shadow: 0 20px 55px rgba(6, 62, 41, 0.12);
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-body > header {
-  min-height: 90px;
-  padding-inline: max(6%, calc((100% - 1400px) / 2));
-  box-shadow: 0 4px 24px rgba(6, 62, 41, 0.035);
-}
-
-body > header .brand {
-  letter-spacing: 1.3px;
-}
-
-body > header .header-cta {
-  padding: 13px 19px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-body > header .header-cta:hover {
-  background: var(--zg-green-2);
-  transform: translateY(-2px);
-}
-
-.zg-hero {
-  min-height: min(720px, 78vw);
-}
-
-.zg-hero::before {
-  background: linear-gradient(
-    90deg,
-    rgba(2, 31, 21, 0.97) 0%,
-    rgba(3, 57, 38, 0.84) 45%,
-    rgba(3, 57, 38, 0.25) 100%
-  );
-}
-
-.zg-hero-content {
-  padding-block: 110px 120px;
-}
-
-.zg-hero h1 {
-  max-width: 900px;
-  font-size: clamp(46px, 6.5vw, 84px);
-  letter-spacing: -2.5px;
-}
-
-.zg-section {
-  padding-block: clamp(65px, 7.5vw, 105px);
-}
-
-.zg-heading {
-  margin-bottom: 44px;
-}
-
-.zg-heading h2,
-.zg-intro-copy h2,
-.zg-project-copy h2,
-.zg-film-copy h2 {
-  letter-spacing: -1.2px;
-}
-
-.zg-business-card {
-  border-radius: 14px;
-  box-shadow: 0 10px 32px rgba(14, 54, 32, 0.06);
-}
-
-.zg-business-card > img {
-  height: 265px;
-}
-
-.zg-business-body {
-  padding: 29px;
-}
-
-.zg-business-body h3 {
-  letter-spacing: -0.4px;
-}
-
-.zg-text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding-block: 7px;
-}
-
-.zg-project-panel {
-  padding: clamp(20px, 3vw, 38px);
-  border-radius: 16px;
-}
-
-.zg-project-panel > img {
-  min-height: 360px;
-}
-
-.zg-news-list {
-  gap: 24px;
-}
-
-.zg-final-cta {
-  padding-block: clamp(65px, 7vw, 90px);
-}
-
-.zg-btn {
-  border-radius: 6px;
-}
-
-.zg-btn:focus-visible,
-body > header a:focus-visible,
-body > header button:focus-visible,
-.zg-text-link:focus-visible {
-  outline: 3px solid var(--zg-gold);
-  outline-offset: 4px;
-}
-
-@media (max-width: 820px) {
-  .zg-hero {
-    min-height: 590px;
-  }
-
-  .zg-hero-content {
-    padding-block: 80px;
-  }
-
-  .zg-business-card > img {
-    height: 225px;
-  }
-
-  .zg-business-body {
-    padding: 22px;
-  }
-
-  .zg-project-panel > img {
-    min-height: 280px;
-  }
-}
-
-@media (max-width: 560px) {
-  body > header {
-    min-height: 74px;
-    padding-inline: 6%;
-  }
-
-  .zg-hero {
-    min-height: 560px;
-  }
-
-  .zg-hero h1 {
-    font-size: clamp(39px, 10vw, 53px);
-    letter-spacing: -1.2px;
-  }
-
-  .zg-section {
-    padding-block: 58px;
-  }
-
-  .zg-business-card > img {
-    height: 245px;
-  }
-
-  .zg-project-panel > img {
-    min-height: 220px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .zg-business-card:hover,
-  .zg-btn:hover,
-  body > header .header-cta:hover {
-    transform: none;
-  }
-}
     :root {
       --zg-green: #063e29;
       --zg-green-2: #0b6843;
@@ -1011,6 +833,187 @@ body > header button:focus-visible,
         transition-duration: .01ms !important;
       }
     }
+
+    /* Premium refinements are placed after the base styles so they take effect. */
+    /* ZAMSON PREMIUM HOMEPAGE REFINEMENTS */
+:root {
+  --zg-shadow: 0 20px 55px rgba(6, 62, 41, 0.12);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body > header {
+  min-height: 90px;
+  padding-inline: max(6%, calc((100% - 1400px) / 2));
+  box-shadow: 0 4px 24px rgba(6, 62, 41, 0.035);
+}
+
+body > header .brand {
+  letter-spacing: 1.3px;
+}
+
+body > header .header-cta {
+  padding: 13px 19px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+body > header .header-cta:hover {
+  background: var(--zg-green-2);
+  transform: translateY(-2px);
+}
+
+.zg-hero {
+  min-height: min(720px, 78vw);
+}
+
+.zg-hero::before {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 31, 21, 0.97) 0%,
+    rgba(3, 57, 38, 0.84) 45%,
+    rgba(3, 57, 38, 0.25) 100%
+  );
+}
+
+.zg-hero-content {
+  padding-block: 110px 120px;
+}
+
+.zg-hero h1 {
+  max-width: 900px;
+  font-size: clamp(46px, 6.5vw, 84px);
+  letter-spacing: -2.5px;
+}
+
+.zg-section {
+  padding-block: clamp(65px, 7.5vw, 105px);
+}
+
+.zg-heading {
+  margin-bottom: 44px;
+}
+
+.zg-heading h2,
+.zg-intro-copy h2,
+.zg-project-copy h2,
+.zg-film-copy h2 {
+  letter-spacing: -1.2px;
+}
+
+.zg-business-card {
+  border-radius: 14px;
+  box-shadow: 0 10px 32px rgba(14, 54, 32, 0.06);
+}
+
+.zg-business-card > img {
+  height: 265px;
+}
+
+.zg-business-body {
+  padding: 29px;
+}
+
+.zg-business-body h3 {
+  letter-spacing: -0.4px;
+}
+
+.zg-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-block: 7px;
+}
+
+.zg-project-panel {
+  padding: clamp(20px, 3vw, 38px);
+  border-radius: 16px;
+}
+
+.zg-project-panel > img {
+  min-height: 360px;
+}
+
+.zg-news-list {
+  gap: 24px;
+}
+
+.zg-final-cta {
+  padding-block: clamp(65px, 7vw, 90px);
+}
+
+.zg-btn {
+  border-radius: 6px;
+}
+
+.zg-btn:focus-visible,
+body > header a:focus-visible,
+body > header button:focus-visible,
+.zg-text-link:focus-visible {
+  outline: 3px solid var(--zg-gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 820px) {
+  .zg-hero {
+    min-height: 590px;
+  }
+
+  .zg-hero-content {
+    padding-block: 80px;
+  }
+
+  .zg-business-card > img {
+    height: 225px;
+  }
+
+  .zg-business-body {
+    padding: 22px;
+  }
+
+  .zg-project-panel > img {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 560px) {
+  body > header {
+    min-height: 74px;
+    padding-inline: 6%;
+  }
+
+  .zg-hero {
+    min-height: 560px;
+  }
+
+  .zg-hero h1 {
+    font-size: clamp(39px, 10vw, 53px);
+    letter-spacing: -1.2px;
+  }
+
+  .zg-section {
+    padding-block: 58px;
+  }
+
+  .zg-business-card > img {
+    height: 245px;
+  }
+
+  .zg-project-panel > img {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zg-business-card:hover,
+  .zg-btn:hover,
+  body > header .header-cta:hover {
+    transform: none;
+  }
+}
+
   </style>
 </head>
 
