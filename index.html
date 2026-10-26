@@ -1,5 +1,4 @@
-
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -1015,6 +1014,244 @@ body > header button:focus-visible,
   }
 }
 
+
+
+    /* ZAMSON GROUP HOMEPAGE VISUAL UPGRADE — OCT 2026 */
+    body > header {
+      position: sticky;
+      top: 0;
+      min-height: 82px;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(6,62,41,.10);
+      box-shadow: 0 8px 28px rgba(3,35,23,.07);
+    }
+    body > header .brand img { width: 56px; height: 56px; }
+    body > header nav a { font-size: 12px; letter-spacing: .1px; }
+    body > header .header-cta {
+      border-radius: 5px;
+      padding: 13px 20px;
+      box-shadow: 0 8px 18px rgba(6,62,41,.15);
+    }
+
+    .zg-hero {
+      min-height: min(760px, 78vw);
+      background: #052c20;
+    }
+    .zg-hero::before {
+      background:
+        linear-gradient(90deg, rgba(2,26,19,.97) 0%, rgba(4,48,32,.88) 42%, rgba(4,48,32,.42) 72%, rgba(4,48,32,.20) 100%),
+        linear-gradient(0deg, rgba(2,26,19,.42), transparent 55%);
+    }
+    .zg-hero > video {
+      object-position: center 56%;
+      filter: saturate(.88) contrast(1.04);
+    }
+    .zg-hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(1250px, 88%);
+      padding: 118px 0 142px;
+    }
+    .zg-eyebrow {
+      padding: 9px 13px 9px 0;
+      margin-bottom: 22px;
+      font-size: 11px;
+      letter-spacing: 2.8px;
+    }
+    .zg-hero h1 {
+      max-width: 920px;
+      font-size: clamp(48px, 6.6vw, 88px);
+      line-height: 1.01;
+      letter-spacing: -3.4px;
+      text-wrap: balance;
+    }
+    .zg-hero h1 span {
+      color: #c9ec8b;
+      text-shadow: 0 5px 34px rgba(198,230,139,.08);
+    }
+    .zg-hero-content > p {
+      max-width: 650px;
+      margin-top: 26px;
+      font-size: clamp(15px, 1.25vw, 18px);
+      line-height: 1.85;
+      color: rgba(255,255,255,.91);
+    }
+    .zg-hero-actions { gap: 14px; }
+    .zg-hero-actions .zg-btn {
+      min-height: 54px;
+      padding: 15px 24px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+    .zg-hero-actions .zg-btn-lime {
+      box-shadow: 0 12px 26px rgba(198,230,139,.18);
+    }
+    .zg-hero-actions .zg-btn-outline {
+      border-color: rgba(255,255,255,.58);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+    }
+    .zg-hero::after {
+      content: "ENERGY  ·  RETAIL  ·  LOGISTICS\A One group. Connected capabilities.";
+      white-space: pre-line;
+      position: absolute;
+      right: max(6%, calc((100% - 1250px) / 2));
+      bottom: 38px;
+      z-index: 2;
+      padding: 17px 22px 18px;
+      border: 1px solid rgba(255,255,255,.27);
+      border-left: 3px solid #c9ec8b;
+      border-radius: 4px;
+      background: rgba(3,38,26,.54);
+      color: #c9ec8b;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      line-height: 2;
+      backdrop-filter: blur(12px);
+    }
+
+    .zg-capabilities {
+      position: relative;
+      z-index: 3;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      padding-inline: max(6%, calc((100% - 1250px) / 2));
+      border-top: 1px solid rgba(198,230,139,.3);
+      background: linear-gradient(110deg, #042d20, #0a593b);
+    }
+    .zg-capability {
+      min-height: 132px;
+      padding: 25px 26px;
+      border-right: 1px solid rgba(255,255,255,.16);
+      transition: background .2s ease;
+    }
+    .zg-capability:hover { background: rgba(255,255,255,.045); }
+    .zg-capability strong {
+      margin-bottom: 8px;
+      font-size: 21px;
+      letter-spacing: -.3px;
+    }
+    .zg-capability span { font-size: 12px; line-height: 1.6; }
+
+    .zg-section { padding-block: clamp(76px, 8vw, 112px); }
+    .zg-section:not(.zg-business-section):has(.zg-intro) {
+      background: linear-gradient(180deg, #fff 0%, #f8faf6 100%);
+    }
+    .zg-kicker {
+      color: #8b7438;
+      letter-spacing: 2.2px;
+    }
+    .zg-heading h2,
+    .zg-intro-copy h2,
+    .zg-project-copy h2,
+    .zg-film-copy h2 {
+      font-size: clamp(32px, 3.7vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -1.6px;
+    }
+    .zg-intro { gap: clamp(40px, 7vw, 92px); }
+    .zg-intro-copy p { font-size: 15px; }
+    .zg-intro-image { padding: 0 0 22px 22px; }
+    .zg-intro-image::before {
+      right: -8px;
+      bottom: -8px;
+      left: 28px;
+      height: 70%;
+      border-radius: 4px;
+      background: #d8e9bc;
+    }
+    .zg-intro-image img {
+      height: clamp(330px, 35vw, 470px);
+      border-radius: 4px;
+      box-shadow: 0 24px 60px rgba(6,62,41,.15);
+    }
+
+    .zg-business-section {
+      background: #f2f5ef;
+      border-top: 1px solid #e6ece2;
+      border-bottom: 1px solid #e6ece2;
+    }
+    .zg-heading { max-width: 800px; }
+    .zg-heading p { max-width: 650px; font-size: 15px; }
+    .zg-business-grid { gap: 22px; }
+    .zg-business-card {
+      border: 1px solid #e1e8de;
+      border-radius: 5px;
+      box-shadow: 0 10px 28px rgba(6,62,41,.055);
+    }
+    .zg-business-card > img {
+      height: 255px;
+      filter: saturate(.92);
+    }
+    .zg-business-card:hover > img { transform: scale(1.045); }
+    .zg-business-body { padding: 27px 27px 30px; }
+    .zg-business-number {
+      color: #8a7137;
+      letter-spacing: 1.7px;
+    }
+    .zg-business-body h3 { font-size: 22px; }
+    .zg-business-body p { font-size: 14px; }
+    .zg-text-link { border-bottom: 1px solid #c8d9b4; padding-bottom: 5px; }
+
+    .zg-project-panel {
+      border: 1px solid #dfe8dc;
+      border-radius: 5px;
+      box-shadow: 0 22px 55px rgba(6,62,41,.09);
+    }
+    .zg-project-panel > img {
+      border-radius: 3px;
+      box-shadow: 0 12px 30px rgba(6,62,41,.10);
+    }
+    .zg-status { border-radius: 3px; letter-spacing: .4px; }
+    .zg-news-section { background: #f5f7f3; }
+    .zg-film > video { border-radius: 4px; }
+    .zg-final-cta {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(115deg, #03291d 0%, #075538 70%, #0b6843 100%);
+    }
+    .zg-final-cta::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -100px;
+      top: -170px;
+      border: 1px solid rgba(198,230,139,.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 35px rgba(198,230,139,.035), 0 0 0 75px rgba(198,230,139,.025);
+      pointer-events: none;
+    }
+    body > footer { border-top: 3px solid #c6e68b; }
+
+    @media (max-width: 1050px) {
+      body > header { gap: 14px; }
+      body > header nav { gap: 12px; }
+      body > header nav a { font-size: 11px; }
+      .zg-hero::after { right: 6%; }
+    }
+    @media (max-width: 820px) {
+      body > header { position: relative; }
+      .zg-hero { min-height: 640px; }
+      .zg-hero-content { padding-block: 88px 120px; }
+      .zg-hero h1 { letter-spacing: -2px; }
+      .zg-hero::after { right: 6%; bottom: 22px; left: 6%; }
+      .zg-capabilities { padding-inline: 6%; }
+      .zg-capability { min-height: 116px; padding: 19px 16px; }
+      .zg-intro-image { margin: 8px 8px 0 0; }
+    }
+    @media (max-width: 560px) {
+      .zg-hero { min-height: 630px; }
+      .zg-hero-content { padding-block: 72px 132px; }
+      .zg-hero h1 { font-size: clamp(38px, 10.5vw, 54px); line-height: 1.04; }
+      .zg-hero-content > p { margin-top: 20px; }
+      .zg-hero::after { font-size: 9px; padding: 12px 14px; letter-spacing: 1px; }
+      .zg-capability { min-height: 108px; }
+      .zg-business-card > img { height: 240px; }
+      .zg-intro-image img { height: 290px; }
+    }
+
   </style>
 </head>
 
@@ -1396,7 +1633,7 @@ body > header button:focus-visible,
         });
       });
     }
-   
+
     const year = document.getElementById("zg-year");
     if (year) {
       year.textContent = new Date().getFullYear();
