@@ -2514,3 +2514,53 @@ footer a:hover { color: var(--zamson-lime); padding-left: 3px; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
 
+
+/* FINAL HOMEPAGE VIDEO FIX */
+.hero.hero-video {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 590px;
+  background: #064b35;
+}
+
+.hero.hero-video .hero-background-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero.hero-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 35, 25, 0.88),
+    rgba(3, 53, 37, 0.48)
+  );
+  pointer-events: none;
+}
+
+.hero.hero-video .hero-inner {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.hero.hero-video .hero-inner h1,
+.hero.hero-video .hero-inner p {
+  color: #fff !important;
+}
+
+@media (max-width: 720px) {
+  .hero.hero-video {
+    min-height: 500px;
+  }
+}
